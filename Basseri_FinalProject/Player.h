@@ -5,13 +5,11 @@
 //  Created by Benjamin Basseri on 7/27/18.
 //  Copyright © 2018 Benjamin Basseri. All rights reserved.
 //
-
-#include <iostream>
 #include <string>
 #include <vector>
 #include <map>
 #include "Action.h"
-#include "Stats.h"
+//#include "Stats.h"
 #pragma once
 
 using namespace std;
@@ -21,6 +19,7 @@ typedef unsigned short          Ushort;
 typedef unsigned int            Uint;
 typedef vector<Player>          Party;
 const Uint NUM_ABILITY_MODS = 6;
+const Uint NUM_PLAYER_STATS = 11;
 
 // Prototypes
 class   PlayerComparison;
@@ -31,7 +30,7 @@ class Player
 {
 protected:
     string m_name;
-    int m_stats[NUM_STATS]; // make sure core 6 stats are the first 6 to align with abilityMods
+    int m_stats[NUM_PLAYER_STATS]; // make sure core 6 stats are the first 6 to align with abilityMods
     int m_abilityMods[NUM_ABILITY_MODS];
     vector<string> m_actions;
 public:
@@ -42,19 +41,3 @@ public:
     int getAbilityMod(const string& ability) const;
     string getName() const;
 };
-
-//class PlayerComparison
-//{
-//private:
-//    const Player * m_character;
-//public:
-//    int m_value;
-//    PlayerComparison();
-//    PlayerComparison(const Player * character);
-//    PlayerComparison(const Player * character, int value);
-//    
-//    //    bool operator < (const PlayerComparison &other) const;
-//    void setValue(int value);
-//    int getValue();
-//    const Player * getCharachterPtr();
-//};
