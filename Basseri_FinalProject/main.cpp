@@ -10,6 +10,7 @@
 #include "Action.h"
 #include "Startup.h"
 #include "Player.h"
+#include "Policy.h"
 //#include "Stats.h"
 
 using namespace std;

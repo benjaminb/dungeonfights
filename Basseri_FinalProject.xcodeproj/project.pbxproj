@@ -12,6 +12,7 @@
 		63409DDF211B9EE6005C1EE1 /* startup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DDE211B9EE6005C1EE1 /* startup.cpp */; };
 		63409DE9211BA297005C1EE1 /* functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DE8211BA297005C1EE1 /* functions.cpp */; };
 		63409DEF211BA7B5005C1EE1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DEE211BA7B5005C1EE1 /* player.cpp */; };
+		63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DF4211BB1C2005C1EE1 /* policy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,8 @@
 		63409DF0211BAE26005C1EE1 /* fighter.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fighter.txt; sourceTree = "<group>"; };
 		63409DF1211BAEDD005C1EE1 /* round1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = round1.txt; sourceTree = "<group>"; };
 		63409DF2211BAEFC005C1EE1 /* rat.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rat.txt; sourceTree = "<group>"; };
+		63409DF3211BB172005C1EE1 /* Policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
+		63409DF4211BB1C2005C1EE1 /* policy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = policy.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,
 				63409DED211BA76C005C1EE1 /* Player.h */,
+				63409DF3211BB172005C1EE1 /* Policy.h */,
+				63409DF4211BB1C2005C1EE1 /* policy.cpp */,
 				63409DEE211BA7B5005C1EE1 /* player.cpp */,
 				63409DDE211B9EE6005C1EE1 /* startup.cpp */,
 				63409DD8211B9CA4005C1EE1 /* Action.h */,
@@ -151,6 +156,7 @@
 				63409DD2211B9C7F005C1EE1 /* main.cpp in Sources */,
 				63409DEF211BA7B5005C1EE1 /* player.cpp in Sources */,
 				63409DE9211BA297005C1EE1 /* functions.cpp in Sources */,
+				63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */,
 				63409DDA211B9CC3005C1EE1 /* action.cpp in Sources */,
 				63409DDF211B9EE6005C1EE1 /* startup.cpp in Sources */,
 			);
