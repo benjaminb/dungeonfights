@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 #include "Action.h"
-//#include "Player.h"
+#include "Player.h"
 //#include "Policy.h"
 #pragma once
 
@@ -16,5 +16,5 @@ using namespace std;
 
 
 ActionsMap      loadActions     (const string &);
-//vector<Player>  loadParty       (const string &filename, const ActionsMap& actions);
+vector<Player>  loadParty       (const string &filename, const ActionsMap& actions);
 //PolicyMap       loadPolicies    (const string &filename);

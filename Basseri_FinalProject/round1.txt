@@ -1,2 +1,2 @@
-rat.txt
-rat.txt
+fighter.txt
+fighter.txt

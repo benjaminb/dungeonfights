@@ -18,7 +18,7 @@ int main() {
 
     ActionsMap actions = loadActions("actions.txt");
     Player magnus("fighter.txt");
-    
+    Party usGuys = loadParty("round1.txt", actions);
     
     return 0;
 }

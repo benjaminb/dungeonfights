@@ -43,19 +43,19 @@ ActionsMap loadActions(const string &filename)
     
     return actions;
 }
-//
-//vector<Player> loadParty(const string &fileList, const ActionsMap& actions)
-//{
-//    vector<Player> party;
-//    ifstream inFile(fileList, ios::in);
-//    string line;
-//    while ( getline(inFile, line, '\n') )
-//    {
-//        Player newCharacter(line);
-//        party.push_back(newCharacter);
-//    }
-//    return party;
-//}
+
+vector<Player> loadParty(const string &fileList, const ActionsMap& actions)
+{
+    vector<Player> party;
+    ifstream inFile(fileList, ios::in);
+    string line;
+    while ( getline(inFile, line, '\n') )
+    {
+        Player newCharacter(line);
+        party.push_back(newCharacter);
+    }
+    return party;
+}
 //
 //PolicyMap loadPolicies(const string &filename)
 //{
