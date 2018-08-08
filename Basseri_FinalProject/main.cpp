@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
+#include "Action.h"
+#include "Startup.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+
+    ActionsMap actions = loadActions("actions.txt");
+    
+    
     return 0;
 }

@@ -1,0 +1,3 @@
+1d1 +0 +0 decrease bite
+1d4 +4 -1 decrease beak
+1d10 +0 +0 decrease long sword
