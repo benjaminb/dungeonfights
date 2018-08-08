@@ -19,17 +19,17 @@ using namespace std;
 ActionsMap loadActions(const string &filename)
 {
     ActionsMap actions;
-    ifstream inFile(filename, ios::in);
-//    try
-//    {
-//        inFile.open(filename, ios::in);
-//        if (!inFile)
-//            throw ("Couldn't open ");
-//    }
-//    catch (char const* s)
-//    {
-//        cout << s << filename << endl;
-//    }
+    ifstream inFile;
+    try
+    {
+        inFile.open(filename, ios::in);
+        if (!inFile)
+            throw ("Couldn't open ");
+    }
+    catch (char const* s)
+    {
+        cout << s << filename << endl;
+    }
     
     string line;
     

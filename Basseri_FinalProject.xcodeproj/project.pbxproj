@@ -10,7 +10,6 @@
 		63409DD2211B9C7F005C1EE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DD1211B9C7F005C1EE1 /* main.cpp */; };
 		63409DDA211B9CC3005C1EE1 /* action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DD9211B9CC3005C1EE1 /* action.cpp */; };
 		63409DDF211B9EE6005C1EE1 /* startup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DDE211B9EE6005C1EE1 /* startup.cpp */; };
-		63409DE6211BA225005C1EE1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DE5211BA225005C1EE1 /* player.cpp */; };
 		63409DE9211BA297005C1EE1 /* functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DE8211BA297005C1EE1 /* functions.cpp */; };
 /* End PBXBuildFile section */
 
@@ -34,12 +33,10 @@
 		63409DDD211B9EAC005C1EE1 /* Startup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Startup.h; sourceTree = "<group>"; };
 		63409DDE211B9EE6005C1EE1 /* startup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = startup.cpp; sourceTree = "<group>"; };
 		63409DE0211BA023005C1EE1 /* actions.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = actions.txt; sourceTree = "<group>"; };
-		63409DE2211BA167005C1EE1 /* Policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
-		63409DE3211BA188005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		63409DE4211BA1BE005C1EE1 /* Stats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
-		63409DE5211BA225005C1EE1 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		63409DE7211BA266005C1EE1 /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		63409DE8211BA297005C1EE1 /* functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
+		63409DED211BA76C005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,15 +71,13 @@
 			children = (
 				63409DD1211B9C7F005C1EE1 /* main.cpp */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,
+				63409DED211BA76C005C1EE1 /* Player.h */,
 				63409DDE211B9EE6005C1EE1 /* startup.cpp */,
 				63409DD8211B9CA4005C1EE1 /* Action.h */,
 				63409DD9211B9CC3005C1EE1 /* action.cpp */,
 				63409DE0211BA023005C1EE1 /* actions.txt */,
-				63409DE2211BA167005C1EE1 /* Policy.h */,
-				63409DE3211BA188005C1EE1 /* Player.h */,
 				63409DE7211BA266005C1EE1 /* functions.h */,
 				63409DE8211BA297005C1EE1 /* functions.cpp */,
-				63409DE5211BA225005C1EE1 /* player.cpp */,
 				63409DE4211BA1BE005C1EE1 /* Stats.h */,
 			);
 			path = Basseri_FinalProject;
@@ -144,7 +139,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63409DE6211BA225005C1EE1 /* player.cpp in Sources */,
 				63409DD2211B9C7F005C1EE1 /* main.cpp in Sources */,
 				63409DE9211BA297005C1EE1 /* functions.cpp in Sources */,
 				63409DDA211B9CC3005C1EE1 /* action.cpp in Sources */,

@@ -9,7 +9,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-//#include "Action.h"
+#include <map>
+#include "Action.h"
 #include "Stats.h"
 #pragma once
 
@@ -41,7 +42,7 @@ public:
     int getAbilityMod(const string& ability) const;
     string getName() const;
 };
-//
+
 //class PlayerComparison
 //{
 //private:
@@ -52,6 +53,7 @@ public:
 //    PlayerComparison(const Player * character);
 //    PlayerComparison(const Player * character, int value);
 //    
+//    //    bool operator < (const PlayerComparison &other) const;
 //    void setValue(int value);
 //    int getValue();
 //    const Player * getCharachterPtr();

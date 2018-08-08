@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Action.h"
 #include "Startup.h"
+#include "Player.h"
 
 using namespace std;
 
