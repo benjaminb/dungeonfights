@@ -40,6 +40,8 @@
 		63409DED211BA76C005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		63409DEE211BA7B5005C1EE1 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		63409DF0211BAE26005C1EE1 /* fighter.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fighter.txt; sourceTree = "<group>"; };
+		63409DF1211BAEDD005C1EE1 /* round1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = round1.txt; sourceTree = "<group>"; };
+		63409DF2211BAEFC005C1EE1 /* rat.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rat.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,8 @@
 				63409DE7211BA266005C1EE1 /* functions.h */,
 				63409DE8211BA297005C1EE1 /* functions.cpp */,
 				63409DE4211BA1BE005C1EE1 /* Stats.h */,
+				63409DF1211BAEDD005C1EE1 /* round1.txt */,
+				63409DF2211BAEFC005C1EE1 /* rat.txt */,
 			);
 			path = Basseri_FinalProject;
 			sourceTree = "<group>";

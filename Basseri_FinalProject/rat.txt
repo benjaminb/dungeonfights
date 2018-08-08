@@ -1,0 +1,12 @@
+str 2
+dex 11
+con 9
+int 2
+wis 10
+cha 4
+hpAdded 1
+ac 10
+action bite
+name rat
+policy biteTheWeakest
+policy biteMostHurt
