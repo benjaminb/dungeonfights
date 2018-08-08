@@ -1,0 +1,4 @@
+foe str 0 bite 0.6 biteTheWeakest
+foe hp 0 bite 0.9 biteMostHurt
+foe hp 0 longSword 0.8 longSwordMostHurt
+friend hp 0 cureLightWounds 0.9 cureMostHurt

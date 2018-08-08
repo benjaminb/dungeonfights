@@ -18,6 +18,8 @@ using namespace std;
 int main() {
 
     ActionsMap actions = loadActions("actions.txt");
+    
+    PolicyMap policies = loadPolicies("policies.txt");
     Player magnus("fighter.txt");
     Party usGuys = loadParty("round1.txt", actions);
     

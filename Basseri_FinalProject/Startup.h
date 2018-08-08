@@ -17,4 +17,4 @@ using namespace std;
 
 ActionsMap      loadActions     (const string &);
 vector<Player>  loadParty       (const string &filename, const ActionsMap& actions);
-//PolicyMap       loadPolicies    (const string &filename);
+PolicyMap       loadPolicies    (const string &filename);

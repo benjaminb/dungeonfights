@@ -56,31 +56,31 @@ vector<Player> loadParty(const string &fileList, const ActionsMap& actions)
     }
     return party;
 }
-//
-//PolicyMap loadPolicies(const string &filename)
-//{
-//    PolicyMap policies;
-//    ifstream inFile;
-//    try
-//    {
-//        inFile.open(filename, ios::in);
-//        if (!inFile)
-//            throw ("Couldn't open ");
-//    }
-//    catch (char const* s)
-//    {
-//        cout << s << filename << endl;
-//    }
-//
-//    string line;
-//
-//    while ( getline(inFile, line, '\n') )
-//    {
-//        Policy newPolicy(line);
-//        policies[newPolicy.getName()] = newPolicy;
-//    }
-//
-//    inFile.close();
-//
-//    return policies;
-//}
+
+PolicyMap loadPolicies(const string &filename)
+{
+    PolicyMap policies;
+    ifstream inFile;
+    try
+    {
+        inFile.open(filename, ios::in);
+        if (!inFile)
+            throw ("Couldn't open ");
+    }
+    catch (char const* s)
+    {
+        cout << s << filename << endl;
+    }
+
+    string line;
+
+    while ( getline(inFile, line, '\n') )
+    {
+        Policy newPolicy(line);
+        policies[newPolicy.getName()] = newPolicy;
+    }
+
+    inFile.close();
+
+    return policies;
+}
