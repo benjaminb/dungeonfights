@@ -17,6 +17,7 @@ using namespace std;
 int main() {
 
     ActionsMap actions = loadActions("actions.txt");
+    Player magnus("fighter.txt");
     
     
     return 0;

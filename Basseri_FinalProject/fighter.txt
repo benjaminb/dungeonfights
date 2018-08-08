@@ -1,0 +1,12 @@
+str 17
+dex 10
+con 16
+int 8
+wis 13
+cha 12
+name Magnus
+action longSword
+action bite
+hpRolls 1
+hpDie 12
+ac 16

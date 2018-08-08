@@ -39,6 +39,7 @@
 		63409DE8211BA297005C1EE1 /* functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
 		63409DED211BA76C005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		63409DEE211BA7B5005C1EE1 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		63409DF0211BAE26005C1EE1 /* fighter.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fighter.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				63409DD1211B9C7F005C1EE1 /* main.cpp */,
+				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,
 				63409DED211BA76C005C1EE1 /* Player.h */,
 				63409DEE211BA7B5005C1EE1 /* player.cpp */,
