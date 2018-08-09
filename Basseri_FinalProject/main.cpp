@@ -25,11 +25,19 @@ int main() {
     
     ActionsMap actions = loadActions("actions.txt");
     PolicyMap policies = loadPolicies("policies.txt");
-    Party theHeroes = loadParty("party.txt", actions);
-    vector<NonPlayer> theRats = loadOpponents("round1.txt", actions);
+    
+    string filename = "";
+    cout << "Enter filename of party to load: ";
+    cin >> filename;
+    Party theHeroes = loadParty(filename, actions);
+    
+    cout << "Thanks! Who do you want to fight?: ";
+    cin >> filename;
+    vector<NonPlayer> opponents = loadOpponents(filename, actions);
 
     
-    fight(theHeroes, theRats, actions, policies);
+    fight(theHeroes, opponents, actions, policies);
     
+    cout << "Thanks for playing!\n";
     return 0;
 }

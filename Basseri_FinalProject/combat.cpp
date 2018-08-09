@@ -28,13 +28,15 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
         cout << "@$%$ROUND " << round++ << "!@#$%" << endl;
         for (Player *combatant : combatants )
         {
-            // Present combatants
-            cout << "Combatants still standing: " << combatants.size() << endl;
+            if (combatant->getStat(stat::hp) <= 0 )
+                continue;
+            
             
             Player *targetCreature;
             NonPlayer *c = dynamic_cast<NonPlayer *>(combatant);
             if (c == nullptr)
             {
+                // Present combatants
                 for (int i = 0; i < combatants.size(); ++i)
                 {
                     cout << i + 1 << ": " << combatants[i]->getName();
@@ -43,17 +45,25 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 
                 cout << "It's " << combatant->getName() << "'s turn!" << endl;
                 
-                cout << "Choose your target: ==>";
-                int choice;
-                cin >> choice;
+                int choice = 0;
+                while ( choice < 1 || choice > combatants.size() )
+                {
+                    cout << "Choose your target: ==>";
+                    cin >> choice;
+                }
                 
                 targetCreature = combatants[--choice];
-                cout << "Make your choice: \n";
+                cout << "Choose your action: \n";
                 for (int i = 0; i < combatant->getNumActions(); ++i)
                     cout << i + 1 << ":" << combatant->getAction(i) << endl;
-                cout << "==>";
-                cin >> choice;
+                
                 // TODO: do some validation
+                choice = 0;
+                while ( choice < 1 || choice > combatant->getNumActions() )
+                {
+                    cout << "==>";
+                    cin >> choice;
+                }
                 string actionString = combatant->getAction(--choice);
                 Action theAction = actions.at(actionString);
                 
@@ -78,17 +88,45 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             }
 
             if ( targetCreature->getStat(stat::hp) <= 0)
-            {
-                cout << targetCreature->getName() << " bites the dust!\n";
-                auto it = find(combatants.begin(), combatants.end(), targetCreature);
-                combatants.erase(it);
-            }
+                cout << targetCreature->getName() << " goes down!\n";
             
             char x;
             cout << "======================\n";
             cout << "enter any char to continue...\n";
             cin  >> x;
+            
+            // Determine if players are all dead
+            bool partySurvives = false;
+            for (int i = 0; i < players.size(); ++i)
+                if ( players[i].getStat(stat::hp) > 0)
+                {
+                    partySurvives = true;
+                    break;
+                }
+            
+            if (!partySurvives)
+            {
+                cout << "You are all dead! Better luck next time.\n";
+                return;
+            }
+            
+            bool opponentSurvives = false;
+            for (int i = 0; i < opponents.size(); ++i)
+                if ( opponents[i].getStat(stat::hp) > 0)
+                {
+                    opponentSurvives = true;
+                    break;
+                }
+            
+            if (!opponentSurvives)
+            {
+                cout << "You won the battle!\n";
+                return;
+            }
+            
         } // end for (end of turn)
+        
+        
     } // end while (end of round)
 
     return;
