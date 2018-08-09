@@ -13,6 +13,7 @@
 		63409DE9211BA297005C1EE1 /* functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DE8211BA297005C1EE1 /* functions.cpp */; };
 		63409DEF211BA7B5005C1EE1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DEE211BA7B5005C1EE1 /* player.cpp */; };
 		63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DF4211BB1C2005C1EE1 /* policy.cpp */; };
+		63409DF9211BB5D3005C1EE1 /* nonplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,8 @@
 		63409DF3211BB172005C1EE1 /* Policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
 		63409DF4211BB1C2005C1EE1 /* policy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = policy.cpp; sourceTree = "<group>"; };
 		63409DF6211BB49F005C1EE1 /* policies.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = policies.txt; sourceTree = "<group>"; };
+		63409DF7211BB569005C1EE1 /* NonPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NonPlayer.h; sourceTree = "<group>"; };
+		63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nonplayer.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,19 +83,21 @@
 			children = (
 				63409DD1211B9C7F005C1EE1 /* main.cpp */,
 				63409DE4211BA1BE005C1EE1 /* Stats.h */,
-				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,
-				63409DED211BA76C005C1EE1 /* Player.h */,
-				63409DF3211BB172005C1EE1 /* Policy.h */,
-				63409DF4211BB1C2005C1EE1 /* policy.cpp */,
-				63409DEE211BA7B5005C1EE1 /* player.cpp */,
 				63409DDE211B9EE6005C1EE1 /* startup.cpp */,
 				63409DD8211B9CA4005C1EE1 /* Action.h */,
 				63409DD9211B9CC3005C1EE1 /* action.cpp */,
-				63409DE0211BA023005C1EE1 /* actions.txt */,
+				63409DF3211BB172005C1EE1 /* Policy.h */,
+				63409DF4211BB1C2005C1EE1 /* policy.cpp */,
+				63409DED211BA76C005C1EE1 /* Player.h */,
+				63409DEE211BA7B5005C1EE1 /* player.cpp */,
+				63409DF7211BB569005C1EE1 /* NonPlayer.h */,
+				63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */,
 				63409DE7211BA266005C1EE1 /* functions.h */,
 				63409DE8211BA297005C1EE1 /* functions.cpp */,
+				63409DE0211BA023005C1EE1 /* actions.txt */,
 				63409DF6211BB49F005C1EE1 /* policies.txt */,
+				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DF1211BAEDD005C1EE1 /* round1.txt */,
 				63409DF2211BAEFC005C1EE1 /* rat.txt */,
 			);
@@ -161,6 +166,7 @@
 				63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */,
 				63409DDA211B9CC3005C1EE1 /* action.cpp in Sources */,
 				63409DDF211B9EE6005C1EE1 /* startup.cpp in Sources */,
+				63409DF9211BB5D3005C1EE1 /* nonplayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

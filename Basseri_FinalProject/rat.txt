@@ -8,3 +8,5 @@ hpAdded 1
 ac 10
 action bite
 name rat
+policy biteTheWeakest
+policy bitMostHurt

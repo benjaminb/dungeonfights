@@ -1,25 +1,24 @@
 //
-//  character.cpp
-//  DungeonCrawl
+//  nonplayer.cpp
+//  Basseri_final
 //
-//  Created by Benjamin Basseri on 8/4/18.
+//  Created by Benjamin Basseri on 8/8/18.
 //  Copyright © 2018 Benjamin Basseri. All rights reserved.
 //
+
 #include <iostream>
 #include <fstream>
-#include <string>
-#include "Player.h"
-//#include "Stats.h"
+#include <map>
+#include <sstream>
+#include "NonPlayer.h"
+#include "Stats.h"
 #include "functions.h"
 
 using namespace std;
 
-Player::Player()
-{
-    m_name = "unnamed character";
-}
+//NonPlayer::NonPlayer() {}
 
-Player::Player(const string &filename)
+NonPlayer::NonPlayer(const string &filename)
 {
     ifstream inFile;
     try         { inFile.open(filename, ios::in); }
@@ -30,6 +29,8 @@ Player::Player(const string &filename)
     {
         if ( key == "action" )
             m_actions.push_back( value );
+        else if ( key == "policy" )
+            m_policies.push_back( value );
         else if ( key == "name" )
             m_name = value;
         else // Default: it's a stat
@@ -45,15 +46,22 @@ Player::Player(const string &filename)
     m_stats[ m_statMap["hp"] ] += roll(m_stats[ m_statMap["hpDie"] ], m_stats[m_statMap["hpRolls"]]);
 }
 
-string Player::getName() { return m_name; }
-
-int Player::getAbilityMod(const string &s)
+Decision NonPlayer::decide(const Party &friends, const Party &foes, PolicyMap &policyMap)
 {
-    return m_abilityMods[ m_statMap[s] ];
-}
-
-Ushort  Player::getStat(const string &s)
-{
-    return m_stats[ m_statMap[s] ];
+    Decision decision;
+    vector<double> decisionScores;
+    Party theParty;
+    
+    //    for (string policy : m_policies )
+    //    {
+    ////        Policy thisPolicy = policyMap[policy];
+    ////        if ( policyMap[policy].targetIsFoe() )
+    //        if (true)
+    ////            theParty = foes;
+    ////        else
+    ////            theParty = friends;
+    //    }
+    
+    return decision;
 }
 
