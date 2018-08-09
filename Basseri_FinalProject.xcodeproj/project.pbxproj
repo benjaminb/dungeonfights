@@ -49,6 +49,8 @@
 		63409DF7211BB569005C1EE1 /* NonPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NonPlayer.h; sourceTree = "<group>"; };
 		63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nonplayer.cpp; sourceTree = "<group>"; };
 		63409DFA211BC232005C1EE1 /* StatEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatEnum.h; sourceTree = "<group>"; };
+		63409DFC211BCC92005C1EE1 /* thief.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = thief.txt; sourceTree = "<group>"; };
+		63409DFD211BCCA9005C1EE1 /* party.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = party.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,8 @@
 				63409DE0211BA023005C1EE1 /* actions.txt */,
 				63409DF6211BB49F005C1EE1 /* policies.txt */,
 				63409DF0211BAE26005C1EE1 /* fighter.txt */,
+				63409DFC211BCC92005C1EE1 /* thief.txt */,
+				63409DFD211BCCA9005C1EE1 /* party.txt */,
 				63409DF1211BAEDD005C1EE1 /* round1.txt */,
 				63409DF2211BAEFC005C1EE1 /* rat.txt */,
 			);

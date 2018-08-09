@@ -1,0 +1,11 @@
+str 8
+dex 17
+con 14
+int 15
+wis 13
+cha 12
+name Bilbo
+action longSword
+hpRolls 1
+hpDie 6
+ac 16

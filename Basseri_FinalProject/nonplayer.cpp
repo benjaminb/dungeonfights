@@ -63,6 +63,8 @@ Decision NonPlayer::decide(Party &allies, Party &foes, PolicyMap &policyMap)
         {
             Policy thisPolicy = policyMap[policy];
             
+            
+            // TODO: Refactor this to a function or get it to branch properly
             if ( thisPolicy.targetIsFoe() )
             {
                 int targetValue = thisPolicy.getTargetValue();
@@ -77,13 +79,22 @@ Decision NonPlayer::decide(Party &allies, Party &foes, PolicyMap &policyMap)
                     if (difference > currentHighestDifference)
                         decision.setTarget(&foes[i]);
                 }
-                
             }
             else
-                for (Player ally : allies)
+            {
+                int targetValue = thisPolicy.getTargetValue();
+                string targetStat = thisPolicy.getTargetStat();
+                
+                decision.setTarget(&allies[0]);
+                double currentHighestDifference = (allies[0].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
+                
+                for (Uint i = 1; i < allies.size(); ++i)
                 {
-                    
+                    int difference = abs(allies[i].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
+                    if (difference > currentHighestDifference)
+                        decision.setTarget(&allies[i]);
                 }
+            }
         }
     
     return decision;
