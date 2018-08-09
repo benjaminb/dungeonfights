@@ -4,8 +4,12 @@ con 9
 int 14
 wis 12
 cha 9
-hp 8
+hp 1
+hpRolls 2
+hpDie 6
 ac 8
 action cureLightWounds
+action curse
 name goblinShaman
 policy cureMostHurt
+policy curseLowestHp

@@ -8,9 +8,9 @@ hpRolls 28
 hpDie 20
 hp 252
 ac 22
+action dragonBite
+action dragonBreath
 action longSword
-action shortBow
+policy dragonBreathTheStrongest
+policy dragonBiteTheHealthiest
 name redDragon
-policy longSwordMostHurt
-policy shootTheBiggest
-

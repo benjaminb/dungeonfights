@@ -4,7 +4,9 @@ con 9
 int 9
 wis 10
 cha 9
-hp 8
+hp 0
+hpRolls 2
+hpDie 6
 ac 10
 action longSword
 action shortBow

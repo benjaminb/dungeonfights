@@ -1,3 +1,4 @@
+26d6 con +0 +0 hp decrease ac dragonBreath
 1d1 str +0 +0 hp decrease ac bite
 1d4 str +4 -1 hp decrease ac beak
 1d6 str +3 +0 hp decrease ac shortSword
@@ -10,3 +11,4 @@
 2d4 int +5 +2 hp decrease automaticSuccess magicMissile
 1d6 wis +2 +4 ac increase automaticSuccess magicShield
 1d6 cha +0 +0 str increase automaticSuccess bearStrength
+2d10 str +17 +10 hp decrease ac dragonBite

@@ -85,9 +85,7 @@ Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, const PolicyM
             
             int targetValue = thisPolicy.getTargetValue();
             string targetStat = thisPolicy.getTargetStat();
-        
-            decision.setTarget( targetParty[0] );
-            
+                    
             for (Uint i = 0; i < targetParty.size(); ++i)
             {
                 double score = abs(targetParty[i]->getStat(targetStat) - targetValue) * thisPolicy.getPriority();
