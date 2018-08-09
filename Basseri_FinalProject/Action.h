@@ -26,15 +26,24 @@ class Action
 private:
     string m_name;
     Ushort m_numRolls;
+    string m_basedOnStat;
     Ushort m_die;
     short  m_resultMod;  // Bonus / penalty to resulting roll
     short  m_successMod; // Bonus / penalty to execute the action
     bool   m_isIncrease;
+    string m_targetStat;
 public:
     Action();
     Action(const string &);
     ~Action();
     
+    // Getters
     string getName();
     bool isIncrease();
+    Ushort getNumRolls();
+    string getBaseStat();
+    Ushort getDie();
+    short getResultMod();
+    short getSuccessMod();
+    string getTargetStat();
 };

@@ -1,3 +1,4 @@
-1d1 +0 +0 decrease bite
-1d4 +4 -1 decrease beak
-1d10 +0 +0 decrease long sword
+1d1 str +0 +0 decrease ac bite
+1d4 str +4 -1 decrease ac beak
+1d10 str +0 +0 decrease ac long sword
+2d4 wis +2 +2 increase 0 cureLightWounds

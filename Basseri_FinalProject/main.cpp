@@ -7,7 +7,10 @@
 //
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "Action.h"
+#include "Combat.h"
 #include "Startup.h"
 #include "NonPlayer.h"
 #include "Player.h"
@@ -18,13 +21,14 @@
 using namespace std;
 
 int main() {
-
-    ActionsMap actions = loadActions("actions.txt");
+    srandom( static_cast<unsigned int>( time(nullptr) ) );
     
+    ActionsMap actions = loadActions("actions.txt");
     PolicyMap policies = loadPolicies("policies.txt");
-    Player magnus("fighter.txt");
-    Party usGuys = loadParty("round1.txt", actions);
-    NonPlayer rizzo("rat.txt");
+    Party theHeroes = loadParty("party.txt", actions);
+    vector<NonPlayer> theRats = loadOpponents("round1.txt", actions);
+    
+    fight(theHeroes, theRats, actions);
     
     return 0;
 }

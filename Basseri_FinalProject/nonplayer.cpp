@@ -16,8 +16,6 @@
 
 using namespace std;
 
-//NonPlayer::NonPlayer() {}
-
 NonPlayer::NonPlayer(const string &filename)
 {
     ifstream inFile;
@@ -34,7 +32,7 @@ NonPlayer::NonPlayer(const string &filename)
         else if ( key == "name" )
             m_name = value;
         else // Default: it's a stat
-            m_stats[ m_statMap[key] ] = stoi(value);
+            m_stats[ m_statMap.at(key) ] = stoi(value);
     }
     
     inFile.close();
@@ -54,45 +52,41 @@ Decision::Decision()
 
 void Decision::setTarget(Player *target) { m_target = target; }
 
-Decision NonPlayer::decide(Party &allies, Party &foes, PolicyMap &policyMap)
+Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, PolicyMap &policyMap)
 {
     Decision decision;
-    vector<double> decisionScores;
+    double lowScore = __DBL_MAX__;
+//    Player * targetPlayer = nullptr;
     
         for (string policy : m_policies )
         {
             Policy thisPolicy = policyMap[policy];
             
-            
-            // TODO: Refactor this to a function or get it to branch properly
+            vector<Player *> targetParty;
             if ( thisPolicy.targetIsFoe() )
             {
-                int targetValue = thisPolicy.getTargetValue();
-                string targetStat = thisPolicy.getTargetStat();
-                
-                decision.setTarget(&foes[0]);
-                double currentHighestDifference = (foes[0].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
-                
-                for (Uint i = 1; i < foes.size(); ++i)
-                {
-                    int difference = abs(foes[i].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
-                    if (difference > currentHighestDifference)
-                        decision.setTarget(&foes[i]);
-                }
+                for (Player p : foes)
+                    targetParty.push_back(&p);
             }
             else
             {
-                int targetValue = thisPolicy.getTargetValue();
-                string targetStat = thisPolicy.getTargetStat();
-                
-                decision.setTarget(&allies[0]);
-                double currentHighestDifference = (allies[0].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
-                
-                for (Uint i = 1; i < allies.size(); ++i)
+                for (NonPlayer p : allies)
+                    targetParty.push_back(&p);
+            }
+            
+            int targetValue = thisPolicy.getTargetValue();
+            string targetStat = thisPolicy.getTargetStat();
+        
+            decision.setTarget( targetParty[0] );
+            
+            for (Uint i = 0; i < targetParty.size(); ++i)
+            {
+                double score = abs(targetParty[i]->getStat(targetStat) - targetValue) * thisPolicy.getPriority();
+                if (score < lowScore)
                 {
-                    int difference = abs(allies[i].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
-                    if (difference > currentHighestDifference)
-                        decision.setTarget(&allies[i]);
+                    lowScore = score;
+                    decision.setTarget(targetParty[i]);
+                    decision.setAction( thisPolicy.getTargetAction() );
                 }
             }
         }
@@ -100,3 +94,4 @@ Decision NonPlayer::decide(Party &allies, Party &foes, PolicyMap &policyMap)
     return decision;
 }
 
+void Decision::setAction(const string &actionString) { m_action = actionString; }

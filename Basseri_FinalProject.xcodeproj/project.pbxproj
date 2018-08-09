@@ -14,6 +14,7 @@
 		63409DEF211BA7B5005C1EE1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DEE211BA7B5005C1EE1 /* player.cpp */; };
 		63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DF4211BB1C2005C1EE1 /* policy.cpp */; };
 		63409DF9211BB5D3005C1EE1 /* nonplayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */; };
+		63409E00211BDF52005C1EE1 /* combat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63409DFF211BDF52005C1EE1 /* combat.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,8 @@
 		63409DFA211BC232005C1EE1 /* StatEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatEnum.h; sourceTree = "<group>"; };
 		63409DFC211BCC92005C1EE1 /* thief.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = thief.txt; sourceTree = "<group>"; };
 		63409DFD211BCCA9005C1EE1 /* party.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = party.txt; sourceTree = "<group>"; };
+		63409DFE211BDEF5005C1EE1 /* Combat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Combat.h; sourceTree = "<group>"; };
+		63409DFF211BDF52005C1EE1 /* combat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = combat.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				63409DE8211BA297005C1EE1 /* functions.cpp */,
 				63409DE0211BA023005C1EE1 /* actions.txt */,
 				63409DF6211BB49F005C1EE1 /* policies.txt */,
+				63409DFE211BDEF5005C1EE1 /* Combat.h */,
+				63409DFF211BDF52005C1EE1 /* combat.cpp */,
 				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DFC211BCC92005C1EE1 /* thief.txt */,
 				63409DFD211BCCA9005C1EE1 /* party.txt */,
@@ -165,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63409DD2211B9C7F005C1EE1 /* main.cpp in Sources */,
+				63409E00211BDF52005C1EE1 /* combat.cpp in Sources */,
 				63409DEF211BA7B5005C1EE1 /* player.cpp in Sources */,
 				63409DE9211BA297005C1EE1 /* functions.cpp in Sources */,
 				63409DF5211BB1C2005C1EE1 /* policy.cpp in Sources */,

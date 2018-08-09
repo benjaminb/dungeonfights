@@ -13,6 +13,20 @@
 #include "StatEnum.h"
 using namespace std;
 
+map<const string, unsigned int> Player::m_statMap = {
+    {"str", 0},
+    {"dex", 1},
+    {"con", 2},
+    {"int", 3},
+    {"wis", 4},
+    {"cha", 5},
+    {"ac", 6},
+    {"hp", 7},
+    {"hitDice", 8},
+    {"hpRolls", 9},
+    {"hpDie", 10}
+};
+
 Player::Player()
 {
     m_name = "unnamed character";
@@ -32,7 +46,7 @@ Player::Player(const string &filename)
         else if ( key == "name" )
             m_name = value;
         else // Default: it's a stat
-            m_stats[ m_statMap[key] ] = stoi(value);
+            m_stats[ m_statMap.at(key) ] = stoi(value);
     }
     
     inFile.close();
@@ -42,11 +56,13 @@ Player::Player(const string &filename)
     
     // Calculate hp
     m_stats[ m_stats[stat::hp] ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
+    
+    return;
 }
 
-string Player::getName() { return m_name; }
+string Player::getName() const { return m_name; }
 
-int Player::getAbilityMod(const string &s)
+int Player::getAbilityMod(const string &s) const
 {
     return m_abilityMods[ m_statMap[s] ];
 }
@@ -56,3 +72,9 @@ Ushort  Player::getStat(const string &s)
     return m_stats[ m_statMap[s] ];
 }
 
+int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
+
+string Player::getAction(const int index)
+{
+    return m_actions[index];
+}

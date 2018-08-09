@@ -9,7 +9,6 @@
 #include <vector>
 #include <map>
 #include "Action.h"
-//#include "Stats.h"
 #pragma once
 
 using namespace std;
@@ -32,34 +31,7 @@ class Player
 {
 protected:
     static const unsigned int M_NUM_STATS = 11;
-    string m_statStrings[M_NUM_STATS] = {
-        "str",
-        "dex",
-        "con",
-        "int",
-        "wis",
-        "cha",
-        "ac",
-        "hp",
-        "hitDice",
-        "hpRolls",
-        "hpDie"
-    };
-    
-    map<const string, unsigned int> m_statMap =
-    {
-        {"str", 0},
-        {"dex", 1},
-        {"con", 2},
-        {"int", 3},
-        {"wis", 4},
-        {"cha", 5},
-        {"ac", 6},
-        {"hp", 7},
-        {"hitDice", 8},
-        {"hpRolls", 9},
-        {"hpDie", 10}
-    };
+    static map<const string, unsigned int> m_statMap;
     
     string m_name;
     int m_stats[NUM_PLAYER_STATS]; // make sure core 6 stats are the first 6 to align with abilityMods
@@ -70,6 +42,10 @@ public:
     Player(const string &filename);
     
     Ushort getStat(const string &stat);
-    int getAbilityMod(const string& ability);
-    string getName();
+    int getAbilityMod(const string& ability) const;
+    string getName() const;
+    int getNumActions();
+    string getAction(const int index);
+    
+    void resolveAction(const Player *targetCreature, Action theAction );
 };

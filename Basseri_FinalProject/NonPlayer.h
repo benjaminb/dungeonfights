@@ -14,12 +14,14 @@
 
 class Decision;
 
+using namespace std;
+
 class NonPlayer: public Player {
 private:
     vector<string> m_policies;
 public:
     NonPlayer(const string &filename);
-    Decision decide(Party &, Party&, PolicyMap&);
+    Decision decide(vector<NonPlayer> &, Party&, PolicyMap&);
 };
 
 class Decision
@@ -32,4 +34,5 @@ public:
     Decision();
     
     void setTarget(Player *);
+    void setAction(const string &);
 };

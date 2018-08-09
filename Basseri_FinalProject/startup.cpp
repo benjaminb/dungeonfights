@@ -57,6 +57,20 @@ vector<Player> loadParty(const string &fileList, const ActionsMap& actions)
     return party;
 }
 
+vector<NonPlayer> loadOpponents(const string &fileList, const ActionsMap& actions)
+{
+    vector<NonPlayer> opponents;
+    ifstream inFile(fileList, ios::in);
+    string line;
+    while ( getline(inFile, line, '\n') )
+    {
+        NonPlayer newCharacter(line);
+        opponents.push_back(newCharacter);
+    }
+    return opponents;
+}
+
+
 PolicyMap loadPolicies(const string &filename)
 {
     PolicyMap policies;

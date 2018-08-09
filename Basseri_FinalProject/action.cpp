@@ -24,7 +24,8 @@ Action::Action()
 
 Action::Action(const string &line)
 {
-    // String format: #d# +|-# increase|decrease <name of action>
+    // String format: #d# basedOnStat successBonus resultBonus increase|decrease targetStat <name of action>
+
     stringstream ss;
     ss << line;
     
@@ -32,8 +33,9 @@ Action::Action(const string &line)
     string numRolls;
     getline(ss, numRolls, 'd');
     m_numRolls = stoi(numRolls);
-    
     ss >> m_die;
+    
+    ss >> m_basedOnStat;
     
     string value;
     ss >> value;
@@ -45,6 +47,8 @@ Action::Action(const string &line)
     ss >> value;
     m_isIncrease = (value == "increase") ? true : false;
     
+    ss >> m_targetStat;
+    
     ss.ignore();
     getline(ss, m_name, '\n');
 }
@@ -54,3 +58,9 @@ Action::~Action() {}
 
 // MARK: methods
 string Action::getName() { return m_name; }
+Ushort Action::getNumRolls() { return m_numRolls; }
+string Action::getBaseStat() { return m_basedOnStat; }
+Ushort Action::getDie() { return m_die; }
+short Action::getResultMod() { return m_resultMod; }
+short Action::getSuccessMod() { return m_successMod; }
+string Action::getTargetStat() { return m_targetStat; }
