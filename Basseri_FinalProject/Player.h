@@ -49,6 +49,7 @@ public:
     string getName() const;
     int getNumActions();
     string getAction(const int index);
+    Ushort getStat(const int &);
     
     bool resolveAction(const Player &targetCreature, const Action &theAction );
 };

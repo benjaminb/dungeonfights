@@ -10,11 +10,12 @@
 #include "Player.h"
 #include "NonPlayer.h"
 #include "Action.h"
+#include "Policy.h"
 #pragma once
 
 using namespace std;
 
 // Prototypes
-void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions);
+void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, PolicyMap policies);
 
 

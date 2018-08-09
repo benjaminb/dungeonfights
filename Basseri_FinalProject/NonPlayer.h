@@ -19,6 +19,8 @@ using namespace std;
 class NonPlayer: public Player {
 private:
     vector<string> m_policies;
+    static map<const string, unsigned int> m_policyMap;
+
 public:
     NonPlayer(const string &filename);
     Decision decide(vector<NonPlayer> &, Party&, PolicyMap&);

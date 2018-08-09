@@ -8,11 +8,12 @@
 //
 #include <iostream>
 #include "Combat.h"
+#include "StatEnum.h"
 
 
 using namespace std;
 
-void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions)
+void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions, PolicyMap policies)
 {
     vector<Player *> combatants;
     for (int i = 0; i < allies.size(); ++i)
@@ -21,36 +22,47 @@ void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions)
         combatants.push_back( &opponents[i] );
     
     // loop over players
-    for (Player ally : allies )
+    for (Player *combatant : combatants )
     {
-        // prompt user choices
-            // loop over actions in this player's action vector
-        cout << "It's " << ally.getName() << "'s turn!\n";
-        cout << "Make your choice: \n";
-        for (int i = 0; i < ally.getNumActions(); ++i)
-            cout << i + 1 << ":" << ally.getAction(i) << endl;
-        cout << "==>";
-        int choice;
-        cin >> choice;
-        // TODO: do some validation
-        string actionString = ally.getAction(--choice);
-        Action theAction = actions.at(actionString);
-        
-        cout << "Choose your target: \n";
-        for (int i = 0; i < combatants.size(); ++i)
-            cout << i + 1 << ": " << combatants[i]->getName() << endl;
-        cout << "==>";
-        cin >> choice;
-        
-        Player *targetCreature = combatants[--choice];
-        
-        bool success = ally.resolveAction(*targetCreature, theAction);
-        
-        if (success)
-            theAction.applyAction(ally, targetCreature);
+        NonPlayer *c = reinterpret_cast<NonPlayer *>(combatant);
+        if (c == nullptr)
+        {
+            cout << "It's " << combatant->getName() << "'s turn!\n";
+            cout << "Make your choice: \n";
+            for (int i = 0; i < combatant->getNumActions(); ++i)
+                cout << i + 1 << ":" << combatant->getAction(i) << endl;
+            cout << "==>";
+            int choice;
+            cin >> choice;
+            // TODO: do some validation
+            string actionString = combatant->getAction(--choice);
+            Action theAction = actions.at(actionString);
+            
+            cout << "Choose your target: \n";
+            for (int i = 0; i < combatants.size(); ++i)
+                cout << i + 1 << ": " << combatants[i]->getName() << endl;
+            cout << "==>";
+            cin >> choice;
+            
+            Player *targetCreature = combatants[--choice];
+            
+            bool success = combatant->resolveAction(*targetCreature, theAction);
+            
+            if (success)
+                theAction.applyAction(*combatant, targetCreature);
+            
+            if ( targetCreature->getStat(stat::hp) <= 0)
+            {
+                auto it = find(combatants.begin(), combatants.end(), targetCreature);
+                combatants.erase(it);
+            }
+        }
+        else
+        {
+            combatant;
+        }
 
-
-        // test for deaths/end of fight
+        
     }
     
     // loop over opponents

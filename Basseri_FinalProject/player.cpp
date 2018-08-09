@@ -67,6 +67,7 @@ void Player::changeStat(const string &key, const short &value)
 }
 
 Ushort  Player::getStat(const string &s) { return m_stats[ m_statMap[s] ]; }
+Ushort  Player::getStat(const int &index) { return m_stats[index]; };
 string Player::getName() const { return m_name; }
 int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statMap[s] ]; }
 int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
@@ -84,7 +85,7 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     // Display roll results
     cout << playerName << " rolls a " << dieRoll << "! ";
     cout << " plus " << successMod << " action modifier, ";
-    cout << " and " << playerName << "'s " << theAction.getBaseStat() << "modifier of" << abilityMod << endl;
+    cout << " and " << playerName << "'s " << theAction.getBaseStat() << " modifier of " << abilityMod << endl;
     cout << "For a total of: " << rollResult << endl;
     
     string targetStat = theAction.getTargetStat();

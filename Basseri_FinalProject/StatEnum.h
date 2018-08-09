@@ -1,4 +1,4 @@
-// NOTE: MUST align with array of m_stats in Player class
+// NOTE: MUST Align with m_stats
 
 namespace stat {
     enum Stat {
