@@ -36,7 +36,6 @@
 		63409DDD211B9EAC005C1EE1 /* Startup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Startup.h; sourceTree = "<group>"; };
 		63409DDE211B9EE6005C1EE1 /* startup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = startup.cpp; sourceTree = "<group>"; };
 		63409DE0211BA023005C1EE1 /* actions.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = actions.txt; sourceTree = "<group>"; };
-		63409DE4211BA1BE005C1EE1 /* Stats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
 		63409DE7211BA266005C1EE1 /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		63409DE8211BA297005C1EE1 /* functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
 		63409DED211BA76C005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		63409DF6211BB49F005C1EE1 /* policies.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = policies.txt; sourceTree = "<group>"; };
 		63409DF7211BB569005C1EE1 /* NonPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NonPlayer.h; sourceTree = "<group>"; };
 		63409DF8211BB5D3005C1EE1 /* nonplayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nonplayer.cpp; sourceTree = "<group>"; };
+		63409DFA211BC232005C1EE1 /* StatEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatEnum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				63409DD1211B9C7F005C1EE1 /* main.cpp */,
-				63409DE4211BA1BE005C1EE1 /* Stats.h */,
+				63409DFA211BC232005C1EE1 /* StatEnum.h */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,
 				63409DDE211B9EE6005C1EE1 /* startup.cpp */,
 				63409DD8211B9CA4005C1EE1 /* Action.h */,

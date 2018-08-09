@@ -11,7 +11,7 @@
 #include <map>
 #include <sstream>
 #include "NonPlayer.h"
-#include "Stats.h"
+#include "StatEnum.h"
 #include "functions.h"
 
 using namespace std;
@@ -43,24 +43,48 @@ NonPlayer::NonPlayer(const string &filename)
         m_abilityMods[i] = (m_stats[i] - 10) / 2;
     
     // Calculate hp
-    m_stats[ m_statMap["hp"] ] += roll(m_stats[ m_statMap["hpDie"] ], m_stats[m_statMap["hpRolls"]]);
+    m_stats[ m_stats[stat::hp] ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
 }
 
-Decision NonPlayer::decide(const Party &friends, const Party &foes, PolicyMap &policyMap)
+Decision::Decision()
+{
+    m_target = nullptr;
+    m_action = "";
+}
+
+void Decision::setTarget(Player *target) { m_target = target; }
+
+Decision NonPlayer::decide(Party &allies, Party &foes, PolicyMap &policyMap)
 {
     Decision decision;
     vector<double> decisionScores;
-    Party theParty;
     
-    //    for (string policy : m_policies )
-    //    {
-    ////        Policy thisPolicy = policyMap[policy];
-    ////        if ( policyMap[policy].targetIsFoe() )
-    //        if (true)
-    ////            theParty = foes;
-    ////        else
-    ////            theParty = friends;
-    //    }
+        for (string policy : m_policies )
+        {
+            Policy thisPolicy = policyMap[policy];
+            
+            if ( thisPolicy.targetIsFoe() )
+            {
+                int targetValue = thisPolicy.getTargetValue();
+                string targetStat = thisPolicy.getTargetStat();
+                
+                decision.setTarget(&foes[0]);
+                double currentHighestDifference = (foes[0].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
+                
+                for (Uint i = 1; i < foes.size(); ++i)
+                {
+                    int difference = abs(foes[i].getStat(targetStat) - targetValue) * thisPolicy.getPriority();
+                    if (difference > currentHighestDifference)
+                        decision.setTarget(&foes[i]);
+                }
+                
+            }
+            else
+                for (Player ally : allies)
+                {
+                    
+                }
+        }
     
     return decision;
 }

@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Action.h"
 #include "Startup.h"
+#include "NonPlayer.h"
 #include "Player.h"
 #include "Policy.h"
 
@@ -23,6 +24,7 @@ int main() {
     PolicyMap policies = loadPolicies("policies.txt");
     Player magnus("fighter.txt");
     Party usGuys = loadParty("round1.txt", actions);
+    NonPlayer rizzo("rat.txt");
     
     return 0;
 }

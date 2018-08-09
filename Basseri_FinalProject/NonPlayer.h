@@ -10,7 +10,6 @@
 #include <vector>
 #include "Player.h"
 #include "Policy.h"
-//#include "Stats.h"
 #pragma once
 
 class Decision;
@@ -20,11 +19,17 @@ private:
     vector<string> m_policies;
 public:
     NonPlayer(const string &filename);
-    Decision decide(const Party &, const Party&, PolicyMap&);
+    Decision decide(Party &, Party&, PolicyMap&);
 };
 
 class Decision
 {
+private:
     Player *m_target;
-    Action action;
+    string m_action;
+    Policy m_outcome;
+public:
+    Decision();
+    
+    void setTarget(Player *);
 };

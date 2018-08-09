@@ -29,6 +29,11 @@ public:
     Policy(const string &line);
     ~Policy();
     
+    // Getters
     string getName();
     bool targetIsFoe();
+    string getTargetStat();
+    int getTargetValue();
+    string getTargetAction();
+    double getPriority();
 };

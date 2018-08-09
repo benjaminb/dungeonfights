@@ -47,3 +47,8 @@ Policy::~Policy() {}
 
 string Policy::getName() { return m_name; }
 bool   Policy::targetIsFoe() { return m_targetIsFoe; }
+string Policy::getTargetStat() {return m_targetStat; }
+string Policy::getTargetAction() { return m_targetAction; }
+int    Policy::getTargetValue() { return m_targetValue; }
+double Policy::getPriority() {return m_priority; }
+

@@ -9,9 +9,8 @@
 #include <fstream>
 #include <string>
 #include "Player.h"
-//#include "Stats.h"
 #include "functions.h"
-
+#include "StatEnum.h"
 using namespace std;
 
 Player::Player()
@@ -42,7 +41,7 @@ Player::Player(const string &filename)
         m_abilityMods[i] = (m_stats[i] - 10) / 2;
     
     // Calculate hp
-    m_stats[ m_statMap["hp"] ] += roll(m_stats[ m_statMap["hpDie"] ], m_stats[m_statMap["hpRolls"]]);
+    m_stats[ m_stats[stat::hp] ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
 }
 
 string Player::getName() { return m_name; }
