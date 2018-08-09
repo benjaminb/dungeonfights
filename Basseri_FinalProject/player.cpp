@@ -9,6 +9,7 @@
 #include <fstream>
 #include <string>
 #include "Player.h"
+#include "Action.h"
 #include "functions.h"
 #include "StatEnum.h"
 using namespace std;
@@ -71,13 +72,13 @@ int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statM
 int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
 string Player::getAction(const int index) { return m_actions[index]; }
 
-void Player::resolveAction(Player *targetCreature, Action theAction )
+bool Player::resolveAction(const Player &targetCreature, const Action &theAction )
 {
     // 1d10 str +0 +0 decrease ac long sword
     string playerName = getName();
     short successMod = theAction.getSuccessMod();
     short abilityMod = getAbilityMod( theAction.getBaseStat() );
-    int dieRoll = roll(theAction.getNumRolls(), theAction.getDie());
+    int dieRoll = roll(1, 20);
     short rollResult = dieRoll + successMod + abilityMod;
     
     // Display roll results
@@ -89,17 +90,14 @@ void Player::resolveAction(Player *targetCreature, Action theAction )
     string targetStat = theAction.getTargetStat();
     
     // Determine success
-    if ( rollResult >= targetCreature->m_statMap[targetStat] )
+    if ( rollResult >= targetCreature.m_stats[ getStat(targetStat) ])
     {
         cout << "Success!";
-        applyAction(theAction, targetCreature);
+        return true;
     }
     else
+    {
         cout << playerName << " fails!\n";
-    
-}
-
-void Player::applyAction(Action theAction, Player * targetCreature)
-{
-    
+        return false;        
+    }
 }

@@ -9,9 +9,10 @@
 #include <iostream>
 #include "Combat.h"
 
+
 using namespace std;
 
-void fight(vector<Player> allies, vector<NonPlayer> opponents, ActionsMap actions)
+void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions)
 {
     vector<Player *> combatants;
     for (int i = 0; i < allies.size(); ++i)
@@ -41,12 +42,14 @@ void fight(vector<Player> allies, vector<NonPlayer> opponents, ActionsMap action
         cout << "==>";
         cin >> choice;
         
-        const Player *targetCreature = combatants[--choice];
+        Player *targetCreature = combatants[--choice];
         
-        resolveAction(targetCreature, theAction);
+        bool success = ally.resolveAction(*targetCreature, theAction);
+        
+        if (success)
+            theAction.applyAction(ally, targetCreature);
 
-        // resolve action
-        
+
         // test for deaths/end of fight
     }
     
@@ -67,13 +70,7 @@ void fight(vector<Player> allies, vector<NonPlayer> opponents, ActionsMap action
     return;
 }
 
-void resolveAction(const Player *targetCreature, Action theAction )
-{
-    // 1d10 str +0 +0 decrease ac long sword
-    int rollResult = roll(theAction.getNumRolls(), theAction.getDie()) + theAction.getSuccessMod();
-    rollResult;
-    
-}
+
 //
 //vector<const Player *> resolveCombatOrder(const vector<Player> &players, const vector<Player> &opponents)
 //{

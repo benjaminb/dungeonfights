@@ -5,9 +5,12 @@
 //  Created by Benjamin Basseri on 8/8/18.
 //  Copyright © 2018 Benjamin Basseri. All rights reserved.
 //
+#include <iostream>
 #include <sstream>
 #include <string>
 #include "Action.h"
+#include "functions.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -59,12 +62,34 @@ Action::Action(const string &line)
 
 Action::~Action() {}
 
-// MARK: methods
-string Action::getName() { return m_name; }
-Ushort Action::getNumRolls() { return m_numRolls; }
-string Action::getBaseStat() { return m_basedOnStat; }
-Ushort Action::getDie() { return m_die; }
-short Action::getResultMod() { return m_resultMod; }
-short Action::getSuccessMod() { return m_successMod; }
-string Action::getTargetStat() { return m_targetStat; }
-string Action::getStatAffected() { return m_statAffected; }
+void Action::applyAction(const Player &player, Player *targetCreature) const
+{
+    string theStat = getStatAffected();
+    Uint numRolls  = getNumRolls();
+    Uint die       = getDie();
+    Uint modifier  = getResultMod();
+
+    short result   = roll(numRolls, die) + modifier;
+    
+    // Display roll
+    cout << "Rolling " << numRolls << "d" << die << " plus " << modifier << "..." << endl;
+    
+    // Apply result
+    result *= isIncrease() ? 1 : -1;
+    targetCreature->changeStat(theStat, result);
+    
+    // Display results
+    string effectStr = isIncrease() ? "increases" : "decreases";
+    cout << targetCreature->getName() << "'s " << theStat << " " << effectStr << " by " << result << "!\n";
+}
+
+// MARK: getters
+string Action::getName() const { return m_name; }
+Ushort Action::getNumRolls() const { return m_numRolls; }
+string Action::getBaseStat() const { return m_basedOnStat; }
+Ushort Action::getDie() const { return m_die; }
+short Action::getResultMod() const { return m_resultMod; }
+short Action::getSuccessMod() const { return m_successMod; }
+string Action::getTargetStat() const { return m_targetStat; }
+string Action::getStatAffected() const { return m_statAffected; }
+bool Action::isIncrease() const { return m_isIncrease; }

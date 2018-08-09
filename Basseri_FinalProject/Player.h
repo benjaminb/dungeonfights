@@ -5,15 +5,17 @@
 //  Created by Benjamin Basseri on 7/27/18.
 //  Copyright © 2018 Benjamin Basseri. All rights reserved.
 //
+
 #include <string>
 #include <vector>
 #include <map>
-#include "Action.h"
+//#include "Action.h"
 #pragma once
 
 using namespace std;
 
 class Player;
+class Action;
 typedef unsigned short          Ushort;
 typedef unsigned int            Uint;
 typedef vector<Player>          Party;
@@ -48,7 +50,6 @@ public:
     int getNumActions();
     string getAction(const int index);
     
-    void resolveAction(Player *targetCreature, Action theAction );
-    void applyAction(Action theAction, Player * targetCreature);
-
+    bool resolveAction(const Player &targetCreature, const Action &theAction );
 };
+

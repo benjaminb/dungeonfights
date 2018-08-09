@@ -8,15 +8,13 @@
 
 #include <vector>
 #include "Player.h"
-#include "Action.h"
 #include "NonPlayer.h"
-#include "functions.h"
+#include "Action.h"
 #pragma once
 
 using namespace std;
 
 // Prototypes
-void fight(vector<Player> players, vector<NonPlayer> opponents);
-void resolveAction(const Player *targetCreature, Action theAction );
+void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions);
 
 
