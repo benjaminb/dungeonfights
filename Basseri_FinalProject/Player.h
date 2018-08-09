@@ -48,5 +48,7 @@ public:
     int getNumActions();
     string getAction(const int index);
     
-    void resolveAction(const Player *targetCreature, Action theAction );
+    void resolveAction(Player *targetCreature, Action theAction );
+    void applyAction(Action theAction, Player * targetCreature);
+
 };

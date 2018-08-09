@@ -71,7 +71,7 @@ int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statM
 int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
 string Player::getAction(const int index) { return m_actions[index]; }
 
-void Player::resolveAction(const Player *targetCreature, Action theAction )
+void Player::resolveAction(Player *targetCreature, Action theAction )
 {
     // 1d10 str +0 +0 decrease ac long sword
     string playerName = getName();
@@ -92,12 +92,14 @@ void Player::resolveAction(const Player *targetCreature, Action theAction )
     if ( rollResult >= targetCreature->m_statMap[targetStat] )
     {
         cout << "Success!";
-        // Apply effect to target
-        string theStat = theAction.getTargetStat();
-        
-        
+        applyAction(theAction, targetCreature);
     }
     else
         cout << playerName << " fails!\n";
+    
+}
+
+void Player::applyAction(Action theAction, Player * targetCreature)
+{
     
 }
