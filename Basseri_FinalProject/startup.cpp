@@ -44,7 +44,7 @@ ActionsMap loadActions(const string &filename)
     return actions;
 }
 
-vector<Player> loadParty(const string &fileList, const ActionsMap& actions)
+Party loadParty(const string &fileList, const ActionsMap& actions)
 {
     vector<Player> party;
     ifstream inFile(fileList, ios::in);

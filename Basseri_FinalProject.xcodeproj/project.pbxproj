@@ -60,6 +60,8 @@
 		63409E05211C9AF8005C1EE1 /* warlock.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = warlock.txt; sourceTree = "<group>"; };
 		63409E06211CB107005C1EE1 /* redDragon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = redDragon.txt; sourceTree = "<group>"; };
 		63409E07211CB175005C1EE1 /* theDragon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = theDragon.txt; sourceTree = "<group>"; };
+		63409E08211CC792005C1EE1 /* bully.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = bully.txt; sourceTree = "<group>"; };
+		63409E09211CC89C005C1EE1 /* bullies.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = bullies.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,8 @@
 		63409DD0211B9C7F005C1EE1 /* Basseri_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				63409E08211CC792005C1EE1 /* bully.txt */,
+				63409E09211CC89C005C1EE1 /* bullies.txt */,
 				63409E06211CB107005C1EE1 /* redDragon.txt */,
 				63409E07211CB175005C1EE1 /* theDragon.txt */,
 				63409E05211C9AF8005C1EE1 /* warlock.txt */,

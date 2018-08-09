@@ -1,0 +1,14 @@
+str 16
+dex 10
+con 14
+int 8
+wis 8
+cha 15
+hp 5
+hpRolls 3
+hpDie 6
+ac 12
+action gutPunch
+policy punchMostHurt
+policy punchLeastHurt
+name Bully

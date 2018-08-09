@@ -8,7 +8,8 @@ hpRolls 1
 hpDie 8
 ac 16
 action cureLightWounds
-action dagger
+action hammer
+action rayOfFrost
 action magicMissile
-name MagicMan
+name AdamWarlock
 
