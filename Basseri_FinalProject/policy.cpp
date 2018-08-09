@@ -31,7 +31,6 @@ Policy::Policy(const string &line)
     
     // Read in data
     string targetParty;
-    //    ss >> targetParty;
     getline(ss, targetParty, ' ');
     m_targetIsFoe = (targetParty == "foe") ? true : false;
     ss >> m_targetStat;
@@ -45,6 +44,7 @@ Policy::Policy(const string &line)
 
 Policy::~Policy() {}
 
+// MARK: Getters
 string Policy::getName() { return m_name; }
 bool   Policy::targetIsFoe() { return m_targetIsFoe; }
 string Policy::getTargetStat() {return m_targetStat; }

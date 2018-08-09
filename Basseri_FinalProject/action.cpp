@@ -74,7 +74,6 @@ void Action::applyAction(const Player &player, Player *targetCreature) const
     // Display roll
     cout << "Rolling " << numRolls << "d" << die << " plus " << modifier << "..." << endl;
     
-    
     // Display results
     string effectStr = isIncrease() ? "increases" : "decreases";
     cout << targetCreature->getName() << "'s " << theStat << " " << effectStr << " by " << result << "!\n";

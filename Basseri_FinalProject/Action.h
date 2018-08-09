@@ -50,6 +50,7 @@ public:
     short getSuccessMod() const;
     string getTargetStat() const;
     string getStatAffected() const;
+    
     void applyAction(const Player &player, Player *targetCreature) const;
 };
 

@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 #include <map>
-//#include "Action.h"
 #pragma once
 
 using namespace std;
@@ -20,14 +19,7 @@ typedef unsigned short          Ushort;
 typedef unsigned int            Uint;
 typedef vector<Player>          Party;
 const Uint NUM_ABILITY_MODS = 6;
-
-// TODO: get this to include Stats.h
 const Uint NUM_PLAYER_STATS = 11;
-
-// Prototypes
-class   PlayerComparison;
-bool    compare(const PlayerComparison & first, const PlayerComparison & second);
-Uint    getStatIndex(const string *);
 
 class Player
 {
@@ -44,14 +36,15 @@ public:
     Player(const string &filename);
     virtual ~Player();
     
+    // Getters
     int getStat(const string &stat) const;
     int getStat(const int &) const;
-    void changeStat(const string &stat, const short &value);
     int getAbilityMod(const string& ability) const;
     string getName() const;
     int getNumActions();
     string getAction(const int index);
     
+    void changeStat(const string &stat, const short &value);
     bool resolveAction(const Player &targetCreature, const Action &theAction );
 };
 
