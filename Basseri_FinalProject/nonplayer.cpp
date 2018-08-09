@@ -52,7 +52,7 @@ Decision::Decision()
 
 void Decision::setTarget(Player *target) { m_target = target; }
 
-Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, PolicyMap &policyMap)
+Decision NonPlayer::decide(const vector<NonPlayer> &allies, const Party &foes, const PolicyMap &policyMap)
 {
     Decision decision;
     double lowScore = __DBL_MAX__;
@@ -60,7 +60,7 @@ Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, PolicyMap &po
     
         for (string policy : m_policies )
         {
-            Policy thisPolicy = policyMap[policy];
+            Policy thisPolicy = policyMap.at(policy);
             
             vector<Player *> targetParty;
             if ( thisPolicy.targetIsFoe() )
@@ -95,3 +95,6 @@ Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, PolicyMap &po
 }
 
 void Decision::setAction(const string &actionString) { m_action = actionString; }
+
+Player * Decision::getTarget() { return m_target; }
+string Decision::getAction() { return m_action; }

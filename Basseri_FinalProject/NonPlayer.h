@@ -23,7 +23,7 @@ private:
 
 public:
     NonPlayer(const string &filename);
-    Decision decide(vector<NonPlayer> &, Party&, PolicyMap&);
+    Decision decide(const vector<NonPlayer> &allies, const Party &foes, const PolicyMap &policyMap);
 };
 
 class Decision
@@ -31,10 +31,12 @@ class Decision
 private:
     Player *m_target;
     string m_action;
-    Policy m_outcome;
+
 public:
     Decision();
     
     void setTarget(Player *);
     void setAction(const string &);
+    Player * getTarget();
+    string getAction();
 };

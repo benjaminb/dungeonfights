@@ -59,7 +59,13 @@ void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions, Policy
         }
         else
         {
-            combatant;
+            Decision d = c->decide(opponents, allies, policies);
+            bool success = c->resolveAction(*d.getTarget(), d.getAction());
+            if (success)
+            {
+                Action theAction = actions.at( d.getAction() );
+                theAction.applyAction(*combatant, d.getTarget());                
+            }
         }
 
         
