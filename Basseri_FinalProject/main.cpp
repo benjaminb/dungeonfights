@@ -27,6 +27,7 @@ int main() {
     PolicyMap policies = loadPolicies("policies.txt");
     Party theHeroes = loadParty("party.txt", actions);
     vector<NonPlayer> theRats = loadOpponents("round1.txt", actions);
+
     
     fight(theHeroes, theRats, actions, policies);
     

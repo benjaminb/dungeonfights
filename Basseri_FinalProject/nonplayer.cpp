@@ -55,6 +55,12 @@ Decision::Decision()
 
 void Decision::setTarget(Player *target) { m_target = target; }
 
+void takeAParty(vector<Player> party)
+{
+    for (Player p : party)
+        cout << p.getName() << " ";
+}
+
 Decision NonPlayer::decide(const vector<NonPlayer> &players, const Party &foes, const PolicyMap &policyMap)
 {
     Decision decision;
@@ -68,13 +74,13 @@ Decision NonPlayer::decide(const vector<NonPlayer> &players, const Party &foes, 
             if ( thisPolicy.targetIsFoe() )
             {
                 for (Player p : foes)
-                    targetParty.push_back(&p);
+                    targetParty.push_back( &p );
                 
             }
             else
             {
                 for (NonPlayer p : players)
-                    targetParty.push_back(&p);
+                    targetParty.push_back(dynamic_cast<Player *>(&p));
             }
             
             int targetValue = thisPolicy.getTargetValue();

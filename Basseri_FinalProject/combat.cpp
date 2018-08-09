@@ -19,20 +19,25 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
     for (int i = 0; i < players.size(); ++i)
         combatants.push_back( &players[i] );
     for (int i = 0; i < opponents.size(); ++i)
-        combatants.push_back( &opponents[i] );
+        combatants.push_back(  dynamic_cast<Player *>(&opponents[i]) );
+    
+    Uint livingPlayers = players.size();
+    Uint livingOpponents = opponents.size();
+    Uint count = 0;
     
     // Combat loop
     while ( combatants.size() > 0 )
     {
+
         for (Player *combatant : combatants )
         {
+            // Present combatants
+            cout << "Combatants still standing: " << combatants.size() << endl;
+            
             Player *targetCreature;
             NonPlayer *c = dynamic_cast<NonPlayer *>(combatant);
             if (c == nullptr)
             {
-                // Present combatants
-                cout << "Combatants still standing: " << combatants.size() << endl;
-                
                 for (int i = 0; i < combatants.size(); ++i)
                     cout << i + 1 << ": " << combatants[i]->getName() << endl;
                 
@@ -43,7 +48,6 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 cin >> choice;
                 
                 targetCreature = combatants[--choice];
-                cout << "It's " << combatant->getName() << "'s turn!\n";
                 cout << "Make your choice: \n";
                 for (int i = 0; i < combatant->getNumActions(); ++i)
                     cout << i + 1 << ":" << combatant->getAction(i) << endl;
@@ -58,7 +62,7 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 if (success)
                     theAction.applyAction(*combatant, targetCreature);
             }
-            else
+            else // it's a monster's turn
             {
                 Decision d = c->decide(opponents, players, policies);
                 targetCreature = d.getTarget();
@@ -79,8 +83,10 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 auto it = find(combatants.begin(), combatants.end(), targetCreature);
                 combatants.erase(it);
             }
-        }
-    }
+            
+//            ++counter;
+        } // end for (end of turn)
+    } // end while (end of round)
 
     return;
 }

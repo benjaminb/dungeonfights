@@ -16,6 +16,9 @@ class Decision;
 
 using namespace std;
 
+void takeAParty(vector<Player> party);
+
+
 class NonPlayer: public Player {
 private:
     vector<string> m_policies;
