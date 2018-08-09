@@ -42,7 +42,7 @@
 		63409DED211BA76C005C1EE1 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		63409DEE211BA7B5005C1EE1 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		63409DF0211BAE26005C1EE1 /* fighter.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fighter.txt; sourceTree = "<group>"; };
-		63409DF1211BAEDD005C1EE1 /* round1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = round1.txt; sourceTree = "<group>"; };
+		63409DF1211BAEDD005C1EE1 /* bunchaRats.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = bunchaRats.txt; sourceTree = "<group>"; };
 		63409DF2211BAEFC005C1EE1 /* rat.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rat.txt; sourceTree = "<group>"; };
 		63409DF3211BB172005C1EE1 /* Policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Policy.h; sourceTree = "<group>"; };
 		63409DF4211BB1C2005C1EE1 /* policy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = policy.cpp; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				63409DF0211BAE26005C1EE1 /* fighter.txt */,
 				63409DFC211BCC92005C1EE1 /* thief.txt */,
 				63409DFD211BCCA9005C1EE1 /* party.txt */,
-				63409DF1211BAEDD005C1EE1 /* round1.txt */,
+				63409DF1211BAEDD005C1EE1 /* bunchaRats.txt */,
 				63409DF2211BAEFC005C1EE1 /* rat.txt */,
 			);
 			path = Basseri_FinalProject;

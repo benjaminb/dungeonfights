@@ -19,8 +19,13 @@ using namespace std;
 NonPlayer::NonPlayer(const string &filename)
 {
     ifstream inFile;
-    try         { inFile.open(filename, ios::in); }
-    catch (string) { cout << "Couldn't open file " << filename << endl; return; }
+    try
+    {
+        inFile.open(filename, ios::in);
+        if (!inFile)
+            throw filename;
+    }
+    catch (string s) { cout << "Couldn't open file " << s << endl; return; }
     
     string key, value;
     while ( inFile >> key >> value )

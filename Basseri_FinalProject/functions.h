@@ -15,5 +15,3 @@ using namespace std;
 typedef unsigned int Uint;
 
 short roll(Uint rolls, Uint die);
-
-//void comparePlayers(const vector<Player> &players, const string &criteria, bool returnMax);

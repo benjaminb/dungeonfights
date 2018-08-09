@@ -12,12 +12,10 @@
 #include "Policy.h"
 #pragma once
 
-class Decision;
 
 using namespace std;
 
-void takeAParty(vector<Player> party);
-
+class Decision;
 
 class NonPlayer: public Player {
 private:

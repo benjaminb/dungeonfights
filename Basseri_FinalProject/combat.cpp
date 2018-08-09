@@ -14,6 +14,7 @@ using namespace std;
 
 void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, PolicyMap policies)
 {
+    // Establish vector of all participants in the fight
     vector<Player *> combatants;
     for (int i = 0; i < players.size(); ++i)
         combatants.push_back( &players[i] );
@@ -33,7 +34,7 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             
             Player *targetCreature;
             NonPlayer *c = dynamic_cast<NonPlayer *>(combatant);
-            if (c == nullptr)
+            if (c == nullptr) // user's turn with one of the Players
             {
                 // Present combatants
                 for (int i = 0; i < combatants.size(); ++i)
@@ -56,7 +57,6 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 for (int i = 0; i < combatant->getNumActions(); ++i)
                     cout << i + 1 << ":" << combatant->getAction(i) << endl;
                 
-                // TODO: do some validation
                 choice = 0;
                 while ( choice < 1 || choice > combatant->getNumActions() )
                 {
@@ -73,11 +73,12 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             }
             else // it's a monster's turn
             {
+                // Resolve monster's decided action & target
                 Decision d = c->decide(opponents, players, policies);
                 targetCreature = d.getTarget();
                 Action theAction = actions.at( d.getAction() );
                 
-                // Display opponent's decision
+                // Display monster's decision
                 cout << c->getName() << " decides to " << d.getAction() << " ";
                 cout << targetCreature->getName() << "!\n";
                 
@@ -87,14 +88,14 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             }
 
             if ( targetCreature->getStat(stat::hp) <= 0)
-                cout << targetCreature->getName() << " goes down!\n";
+                cout << targetCreature->getName() << " is down!\n";
             
             char x;
             cout << "======================\n";
             cout << "enter any char to continue...\n";
             cin  >> x;
             
-            // Determine if players are all dead
+            // Determine who's still standing
             bool partySurvives = false;
             for (int i = 0; i < players.size(); ++i)
                 if ( players[i].getStat(stat::hp) > 0)
@@ -124,7 +125,6 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             }
             
         } // end for (end of turn)
-        
         
     } // end while (end of round)
 

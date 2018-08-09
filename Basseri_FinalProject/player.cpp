@@ -28,10 +28,7 @@ map<const string, unsigned int> Player::m_statMap = {
     {"hpDie", 10}
 };
 
-Player::Player()
-{
-    m_name = "unnamed character";
-}
+Player::Player() { m_name = "unnamed character"; }
 
 Player::Player(const string &filename)
 {
@@ -101,12 +98,12 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     // Determine success
     if ( rollResult >= targetCreature.getStat(targetStat))
     {
-        cout << "Success!";
+        cout << "Success! ";
         return true;
     }
     else
     {
-        cout << playerName << " fails!\n";
+        cout << playerName << " fails! \n";
         return false;        
     }
 }
