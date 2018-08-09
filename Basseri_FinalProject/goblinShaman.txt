@@ -1,0 +1,11 @@
+str 12
+dex 11
+con 9
+int 14
+wis 12
+cha 9
+hp 8
+ac 8
+action cureLightWounds
+name goblinShaman
+policy cureMostHurt

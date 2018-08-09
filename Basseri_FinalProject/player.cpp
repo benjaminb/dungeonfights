@@ -78,6 +78,13 @@ string Player::getAction(const int index) { return m_actions[index]; }
 bool Player::resolveAction(const Player &targetCreature, const Action &theAction )
 {
     // 1d10 str +0 +0 decrease ac long sword
+    string targetStat = theAction.getTargetStat();
+    if (targetStat == "automaticSuccess")
+    {
+        cout << "Success! ";
+        return true;
+    }
+    
     string playerName = getName();
     short successMod = theAction.getSuccessMod();
     short abilityMod = getAbilityMod( theAction.getBaseStat() );
@@ -85,12 +92,11 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     short rollResult = dieRoll + successMod + abilityMod;
     
     // Display roll results
-    cout << playerName << " rolls a " << dieRoll << "! ";
-    cout << " plus " << successMod << " action modifier, ";
+    cout << playerName << " rolls a " << dieRoll << "!";
+    cout << " Plus " << successMod << " action modifier,";
     cout << " and " << playerName << "'s " << theAction.getBaseStat() << " modifier of " << abilityMod << endl;
     cout << "For a total of: " << rollResult << endl;
     
-    string targetStat = theAction.getTargetStat();
     
     // Determine success
     if ( rollResult >= targetCreature.getStat(targetStat))

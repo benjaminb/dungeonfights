@@ -1,2 +1,3 @@
 fighter.txt
 thief.txt
+warlock.txt

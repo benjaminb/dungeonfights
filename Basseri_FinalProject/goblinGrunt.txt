@@ -1,0 +1,13 @@
+str 12
+dex 11
+con 9
+int 9
+wis 10
+cha 9
+hp 8
+ac 10
+action longSword
+action shortBow
+name goblinGrunt
+policy longSwordMostHurt
+policy shootTheBiggest

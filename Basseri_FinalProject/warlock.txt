@@ -1,0 +1,14 @@
+str 12
+dex 11
+con 4
+int 14
+wis 12
+cha 15
+hpRolls 1
+hpDie 8
+ac 16
+action cureLightWounds
+action dagger
+action magicMissile
+name MagicMan
+

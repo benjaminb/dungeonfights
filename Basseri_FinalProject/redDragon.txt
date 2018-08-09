@@ -1,0 +1,16 @@
+str 30
+dex 10
+con 29
+int 18
+wis 15
+cha 23
+hpRolls 28
+hpDie 20
+hp 252
+ac 22
+action longSword
+action shortBow
+name redDragon
+policy longSwordMostHurt
+policy shootTheBiggest
+

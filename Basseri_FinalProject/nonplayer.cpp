@@ -41,7 +41,8 @@ NonPlayer::NonPlayer(const string &filename)
         m_abilityMods[i] = (m_stats[i] - 10) / 2;
     
     // Calculate hp
-    m_stats[ m_stats[stat::hp] ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
+    m_stats[ stat::hp ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
+
 }
 
 NonPlayer::~NonPlayer() {}
@@ -73,15 +74,11 @@ Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, const PolicyM
             vector<Player *> targetParty;
             if ( thisPolicy.targetIsFoe() )
             {
-//                for (Player p : foes)
-//                    targetParty.push_back( &p );
                 for (int i = 0; i < foes.size(); ++i)
                     targetParty.push_back( &foes[i] );
             }
             else
             {
-//                for (NonPlayer p : players)
-//                    targetParty.push_back(dynamic_cast<Player *>(&p));
                 for (int i = 0; i < allies.size(); ++i)
                     targetParty.push_back(dynamic_cast<Player *>( &allies[i]));
             }

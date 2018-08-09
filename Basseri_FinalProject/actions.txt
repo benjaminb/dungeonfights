@@ -1,4 +1,12 @@
 1d1 str +0 +0 hp decrease ac bite
 1d4 str +4 -1 hp decrease ac beak
-1d10 str +0 +0 hp decrease ac longSword
-2d4 wis +2 +2 hp increase 0 cureLightWounds
+1d6 str +3 +0 hp decrease ac shortSword
+1d8 str +0 +0 hp decrease ac longSword
+1d6 dex +0 +0 hp decrease ac shortBow
+1d4 str +0 +0 hp decrease ac dagger
+1d6 str +0 +0 hp decrease ac hammer
+1d6 int +0 +0 hp decrease wis curse
+2d4 wis +2 +2 hp increase automaticSuccess cureLightWounds
+2d4 int +5 +2 hp decrease automaticSuccess magicMissile
+1d6 wis +2 +4 ac increase automaticSuccess magicShield
+1d6 cha +0 +0 str increase automaticSuccess bearStrength

@@ -54,6 +54,12 @@
 		63409DFD211BCCA9005C1EE1 /* party.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = party.txt; sourceTree = "<group>"; };
 		63409DFE211BDEF5005C1EE1 /* Combat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Combat.h; sourceTree = "<group>"; };
 		63409DFF211BDF52005C1EE1 /* combat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = combat.cpp; sourceTree = "<group>"; };
+		63409E02211C93FD005C1EE1 /* goblinGrunt.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = goblinGrunt.txt; sourceTree = "<group>"; };
+		63409E03211C948C005C1EE1 /* goblins.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = goblins.txt; sourceTree = "<group>"; };
+		63409E04211C968D005C1EE1 /* goblinShaman.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = goblinShaman.txt; sourceTree = "<group>"; };
+		63409E05211C9AF8005C1EE1 /* warlock.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = warlock.txt; sourceTree = "<group>"; };
+		63409E06211CB107005C1EE1 /* redDragon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = redDragon.txt; sourceTree = "<group>"; };
+		63409E07211CB175005C1EE1 /* theDragon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = theDragon.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,12 @@
 		63409DD0211B9C7F005C1EE1 /* Basseri_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				63409E06211CB107005C1EE1 /* redDragon.txt */,
+				63409E07211CB175005C1EE1 /* theDragon.txt */,
+				63409E05211C9AF8005C1EE1 /* warlock.txt */,
+				63409E04211C968D005C1EE1 /* goblinShaman.txt */,
+				63409E02211C93FD005C1EE1 /* goblinGrunt.txt */,
+				63409E03211C948C005C1EE1 /* goblins.txt */,
 				63409DD1211B9C7F005C1EE1 /* main.cpp */,
 				63409DFA211BC232005C1EE1 /* StatEnum.h */,
 				63409DDD211B9EAC005C1EE1 /* Startup.h */,

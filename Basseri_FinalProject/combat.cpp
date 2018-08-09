@@ -10,7 +10,6 @@
 #include "Combat.h"
 #include "StatEnum.h"
 
-
 using namespace std;
 
 void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, PolicyMap policies)
