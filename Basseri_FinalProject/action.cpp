@@ -24,7 +24,8 @@ Action::Action()
 
 Action::Action(const string &line)
 {
-    // String format: #d# basedOnStat successBonus resultBonus increase|decrease targetStat <name of action>
+    // String format: #d# basedOnStat successBonus resultBonus statAffected increase|decrease targetStat <name of action>
+    // e.g.: 1d1 str +0 +0 hp decrease ac bite
 
     stringstream ss;
     ss << line;
@@ -43,6 +44,8 @@ Action::Action(const string &line)
     
     ss >> value;
     m_resultMod = stoi(value);
+    
+    ss >> m_statAffected;
     
     ss >> value;
     m_isIncrease = (value == "increase") ? true : false;
@@ -64,3 +67,4 @@ Ushort Action::getDie() { return m_die; }
 short Action::getResultMod() { return m_resultMod; }
 short Action::getSuccessMod() { return m_successMod; }
 string Action::getTargetStat() { return m_targetStat; }
+string Action::getStatAffected() { return m_statAffected; }

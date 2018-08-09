@@ -71,7 +71,7 @@ void resolveAction(const Player *targetCreature, Action theAction )
 {
     // 1d10 str +0 +0 decrease ac long sword
     int rollResult = roll(theAction.getNumRolls(), theAction.getDie()) + theAction.getSuccessMod();
-    rollResult += 
+    rollResult;
     
 }
 //

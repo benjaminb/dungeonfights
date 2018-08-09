@@ -42,6 +42,7 @@ public:
     Player(const string &filename);
     
     Ushort getStat(const string &stat);
+    void changeStat(const string &stat, const short &value);
     int getAbilityMod(const string& ability) const;
     string getName() const;
     int getNumActions();

@@ -26,6 +26,7 @@ class Action
 private:
     string m_name;
     Ushort m_numRolls;
+    string m_statAffected;
     string m_basedOnStat;
     Ushort m_die;
     short  m_resultMod;  // Bonus / penalty to resulting roll
@@ -46,4 +47,5 @@ public:
     short getResultMod();
     short getSuccessMod();
     string getTargetStat();
+    string getStatAffected();
 };

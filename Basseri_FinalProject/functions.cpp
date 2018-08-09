@@ -9,7 +9,7 @@
 #include <cstdlib>
 #include "functions.h"
 
-Uint roll(Uint rolls, Uint die)
+short roll(Uint rolls, Uint die)
 {
     Uint result = 0;
     for (int i = 0; i < rolls; ++i)

@@ -28,7 +28,7 @@ int main() {
     Party theHeroes = loadParty("party.txt", actions);
     vector<NonPlayer> theRats = loadOpponents("round1.txt", actions);
     
-    fight(theHeroes, theRats, actions);
+//    fight(theHeroes, theRats, actions);
     
     return 0;
 }

@@ -60,21 +60,44 @@ Player::Player(const string &filename)
     return;
 }
 
+void Player::changeStat(const string &key, const short &value)
+{
+    m_stats[ m_statMap.at(key)] += value;
+}
+
+Ushort  Player::getStat(const string &s) { return m_stats[ m_statMap[s] ]; }
 string Player::getName() const { return m_name; }
-
-int Player::getAbilityMod(const string &s) const
-{
-    return m_abilityMods[ m_statMap[s] ];
-}
-
-Ushort  Player::getStat(const string &s)
-{
-    return m_stats[ m_statMap[s] ];
-}
-
+int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statMap[s] ]; }
 int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
+string Player::getAction(const int index) { return m_actions[index]; }
 
-string Player::getAction(const int index)
+void Player::resolveAction(const Player *targetCreature, Action theAction )
 {
-    return m_actions[index];
+    // 1d10 str +0 +0 decrease ac long sword
+    string playerName = getName();
+    short successMod = theAction.getSuccessMod();
+    short abilityMod = getAbilityMod( theAction.getBaseStat() );
+    int dieRoll = roll(theAction.getNumRolls(), theAction.getDie());
+    short rollResult = dieRoll + successMod + abilityMod;
+    
+    // Display roll results
+    cout << playerName << " rolls a " << dieRoll << "! ";
+    cout << " plus " << successMod << " action modifier, ";
+    cout << " and " << playerName << "'s " << theAction.getBaseStat() << "modifier of" << abilityMod << endl;
+    cout << "For a total of: " << rollResult << endl;
+    
+    string targetStat = theAction.getTargetStat();
+    
+    // Determine success
+    if ( rollResult >= targetCreature->m_statMap[targetStat] )
+    {
+        cout << "Success!";
+        // Apply effect to target
+        string theStat = theAction.getTargetStat();
+        
+        
+    }
+    else
+        cout << playerName << " fails!\n";
+    
 }
