@@ -44,13 +44,13 @@ public:
     Player(const string &filename);
     virtual ~Player();
     
-    Ushort getStat(const string &stat) const;
+    int getStat(const string &stat) const;
+    int getStat(const int &) const;
     void changeStat(const string &stat, const short &value);
     int getAbilityMod(const string& ability) const;
     string getName() const;
     int getNumActions();
     string getAction(const int index);
-    Ushort getStat(const int &) const;
     
     bool resolveAction(const Player &targetCreature, const Action &theAction );
 };

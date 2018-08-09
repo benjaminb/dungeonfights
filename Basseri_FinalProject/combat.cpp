@@ -21,11 +21,11 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
     for (int i = 0; i < opponents.size(); ++i)
         combatants.push_back(  dynamic_cast<Player *>(&opponents[i]) );
     
-    
+    Uint round = 1;
     // Combat loop
     while ( combatants.size() > 0 )
     {
-
+        cout << "@$%$ROUND " << round++ << "!@#$%" << endl;
         for (Player *combatant : combatants )
         {
             // Present combatants
@@ -69,7 +69,7 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 Action theAction = actions.at( d.getAction() );
                 
                 // Display opponent's decision
-                cout << c->getName() << " decides to " << d.getAction();
+                cout << c->getName() << " decides to " << d.getAction() << " ";
                 cout << targetCreature->getName() << "!\n";
                 
                 bool success = c->resolveAction(*targetCreature, theAction);
@@ -84,41 +84,12 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
                 combatants.erase(it);
             }
             
-//            ++counter;
+            char x;
+            cout << "======================\n";
+            cout << "enter any char to continue...\n";
+            cin  >> x;
         } // end for (end of turn)
     } // end while (end of round)
 
     return;
 }
-
-
-//
-//vector<const Player *> resolveCombatOrder(const vector<Player> &players, const vector<Player> &opponents)
-//{
-//    // Roll & sort based on initiative
-//    vector<PlayerComparison> combatants;
-//    rollInitiative(players, combatants);
-//    rollInitiative(opponents, combatants);
-//    sort(combatants.begin(), combatants.end(), compare);
-//
-//    // Extract Character *'s to vector since you don't need CharacterComparison objects anymore
-//    vector<const Player *> combatOrder;
-//    for ( PlayerComparison c : combatants )
-//        combatOrder.push_back( c.getCharachterPtr() );
-//
-//    return combatOrder;
-//}
-//
-//void randomizeFightOrder(const vector<Player> &players, const vector<NonPlayer> &opponents)
-//{
-//
-//    vector<Player const *> combatOrder;
-//
-//    for ( const Player & player : players)
-//        combatOrder.push_back(&player);
-//
-//    for ( const Player & opponent : opponents)
-//        combatOrder.push_back(&opponent);
-//
-//    std::shuffle( combatOrder.begin(), combatOrder.end(), random() );
-//}

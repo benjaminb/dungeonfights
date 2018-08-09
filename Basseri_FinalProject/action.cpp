@@ -74,13 +74,14 @@ void Action::applyAction(const Player &player, Player *targetCreature) const
     // Display roll
     cout << "Rolling " << numRolls << "d" << die << " plus " << modifier << "..." << endl;
     
-    // Apply result
-    result *= isIncrease() ? 1 : -1;
-    targetCreature->changeStat(theStat, result);
     
     // Display results
     string effectStr = isIncrease() ? "increases" : "decreases";
     cout << targetCreature->getName() << "'s " << theStat << " " << effectStr << " by " << result << "!\n";
+    
+    // Apply result
+    result *= isIncrease() ? 1 : -1;
+    targetCreature->changeStat(theStat, result);
 }
 
 // MARK: getters
