@@ -61,7 +61,7 @@ void takeAParty(vector<Player> party)
         cout << p.getName() << " ";
 }
 
-Decision NonPlayer::decide(const vector<NonPlayer> &players, const Party &foes, const PolicyMap &policyMap)
+Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, const PolicyMap &policyMap)
 {
     Decision decision;
     double lowScore = __DBL_MAX__;
@@ -73,14 +73,17 @@ Decision NonPlayer::decide(const vector<NonPlayer> &players, const Party &foes, 
             vector<Player *> targetParty;
             if ( thisPolicy.targetIsFoe() )
             {
-                for (Player p : foes)
-                    targetParty.push_back( &p );
-                
+//                for (Player p : foes)
+//                    targetParty.push_back( &p );
+                for (int i = 0; i < foes.size(); ++i)
+                    targetParty.push_back( &foes[i] );
             }
             else
             {
-                for (NonPlayer p : players)
-                    targetParty.push_back(dynamic_cast<Player *>(&p));
+//                for (NonPlayer p : players)
+//                    targetParty.push_back(dynamic_cast<Player *>(&p));
+                for (int i = 0; i < allies.size(); ++i)
+                    targetParty.push_back(dynamic_cast<Player *>( &allies[i]));
             }
             
             int targetValue = thisPolicy.getTargetValue();

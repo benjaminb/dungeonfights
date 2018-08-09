@@ -21,9 +21,6 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
     for (int i = 0; i < opponents.size(); ++i)
         combatants.push_back(  dynamic_cast<Player *>(&opponents[i]) );
     
-    Uint livingPlayers = players.size();
-    Uint livingOpponents = opponents.size();
-    Uint count = 0;
     
     // Combat loop
     while ( combatants.size() > 0 )
@@ -39,7 +36,10 @@ void fight(Party players, vector<NonPlayer> opponents, ActionsMap actions, Polic
             if (c == nullptr)
             {
                 for (int i = 0; i < combatants.size(); ++i)
-                    cout << i + 1 << ": " << combatants[i]->getName() << endl;
+                {
+                    cout << i + 1 << ": " << combatants[i]->getName();
+                    cout << "(hp: " << combatants[i]->getStat(stat::hp) << ")" << endl;
+                }
                 
                 cout << "It's " << combatant->getName() << "'s turn!" << endl;
                 
