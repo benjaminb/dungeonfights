@@ -55,11 +55,10 @@ Decision::Decision()
 
 void Decision::setTarget(Player *target) { m_target = target; }
 
-Decision NonPlayer::decide(const vector<NonPlayer> &allies, const Party &foes, const PolicyMap &policyMap)
+Decision NonPlayer::decide(const vector<NonPlayer> &players, const Party &foes, const PolicyMap &policyMap)
 {
     Decision decision;
     double lowScore = __DBL_MAX__;
-//    Player * targetPlayer = nullptr;
     
         for (string policy : m_policies )
         {
@@ -70,10 +69,11 @@ Decision NonPlayer::decide(const vector<NonPlayer> &allies, const Party &foes, c
             {
                 for (Player p : foes)
                     targetParty.push_back(&p);
+                
             }
             else
             {
-                for (NonPlayer p : allies)
+                for (NonPlayer p : players)
                     targetParty.push_back(&p);
             }
             

@@ -5,7 +5,7 @@ int 2
 wis 10
 cha 4
 hp 1
-ac 10
+ac 7
 action bite
 name rat
 policy biteTheWeakest
