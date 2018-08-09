@@ -37,7 +37,7 @@ private:
     string m_targetStat;
 public:
     Action();
-    Action(const string &);
+    explicit Action(const string &);
     ~Action();
     
     // Getters

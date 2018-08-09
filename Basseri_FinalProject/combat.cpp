@@ -24,67 +24,57 @@ void fight(Party allies, vector<NonPlayer> opponents, ActionsMap actions, Policy
     // loop over players
     for (Player *combatant : combatants )
     {
-        NonPlayer *c = reinterpret_cast<NonPlayer *>(combatant);
+        Player *targetCreature;
+        NonPlayer *c = dynamic_cast<NonPlayer *>(combatant);
         if (c == nullptr)
         {
+            // Present combatants
+            cout << "Combatants still standing: " << combatants.size() << endl;
+            
+            for (int i = 0; i < combatants.size(); ++i)
+                cout << i + 1 << ": " << combatants[i]->getName() << endl;
+            
+            cout << "It's " << combatant->getName() << "'s turn!" << endl;
+            
+            cout << "Choose your target: ==>";
+            int choice;
+            cin >> choice;
+            
+            targetCreature = combatants[--choice];
             cout << "It's " << combatant->getName() << "'s turn!\n";
             cout << "Make your choice: \n";
             for (int i = 0; i < combatant->getNumActions(); ++i)
                 cout << i + 1 << ":" << combatant->getAction(i) << endl;
             cout << "==>";
-            int choice;
             cin >> choice;
             // TODO: do some validation
             string actionString = combatant->getAction(--choice);
             Action theAction = actions.at(actionString);
             
-            cout << "Choose your target: \n";
-            for (int i = 0; i < combatants.size(); ++i)
-                cout << i + 1 << ": " << combatants[i]->getName() << endl;
-            cout << "==>";
-            cin >> choice;
-            
-            Player *targetCreature = combatants[--choice];
-            
             bool success = combatant->resolveAction(*targetCreature, theAction);
             
             if (success)
                 theAction.applyAction(*combatant, targetCreature);
-            
-            if ( targetCreature->getStat(stat::hp) <= 0)
-            {
-                auto it = find(combatants.begin(), combatants.end(), targetCreature);
-                combatants.erase(it);
-            }
         }
         else
         {
             Decision d = c->decide(opponents, allies, policies);
-            bool success = c->resolveAction(*d.getTarget(), d.getAction());
+            Action theAction = actions.at( d.getAction() );
+            cout << c->getName() << " decides to " << d.getAction() << "!\n";
+            targetCreature = d.getTarget();
+            bool success = c->resolveAction(*targetCreature, theAction);
             if (success)
-            {
-                Action theAction = actions.at( d.getAction() );
-                theAction.applyAction(*combatant, d.getTarget());                
-            }
+                theAction.applyAction(*combatant, targetCreature);
         }
 
-        
+        if ( targetCreature->getStat(stat::hp) <= 0)
+        {
+            cout << targetCreature->getName() << " bites the dust!\n";
+            auto it = find(combatants.begin(), combatants.end(), targetCreature);
+            combatants.erase(it);
+        }
     }
-    
-    // loop over opponents
-    for (NonPlayer opponent : opponents)
-    {
-        // make decision
-        // resolve action
-        // test for deaths/end of fight
 
-        
-    }
-    
-    // resolve action
-    // if monster, perform logic
-    // if player, prompt for options
-    // calculate consequences
     return;
 }
 

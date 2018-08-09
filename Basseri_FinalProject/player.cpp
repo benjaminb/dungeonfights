@@ -61,6 +61,8 @@ Player::Player(const string &filename)
     return;
 }
 
+Player::~Player() {}    
+
 void Player::changeStat(const string &key, const short &value)
 {
     m_stats[ m_statMap.at(key)] += value;

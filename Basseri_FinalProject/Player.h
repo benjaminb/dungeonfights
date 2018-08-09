@@ -42,6 +42,7 @@ protected:
 public:
     Player();
     Player(const string &filename);
+    virtual ~Player();
     
     Ushort getStat(const string &stat);
     void changeStat(const string &stat, const short &value);

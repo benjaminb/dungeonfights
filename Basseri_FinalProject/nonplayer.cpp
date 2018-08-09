@@ -44,6 +44,9 @@ NonPlayer::NonPlayer(const string &filename)
     m_stats[ m_stats[stat::hp] ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
 }
 
+NonPlayer::~NonPlayer() {}
+
+
 Decision::Decision()
 {
     m_target = nullptr;

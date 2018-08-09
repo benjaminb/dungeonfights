@@ -9,4 +9,4 @@ ac 10
 action bite
 name rat
 policy biteTheWeakest
-policy bitMostHurt
+policy biteMostHurt

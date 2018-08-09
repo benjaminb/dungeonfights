@@ -23,6 +23,7 @@ private:
 
 public:
     NonPlayer(const string &filename);
+    virtual ~NonPlayer();
     Decision decide(const vector<NonPlayer> &allies, const Party &foes, const PolicyMap &policyMap);
 };
 
