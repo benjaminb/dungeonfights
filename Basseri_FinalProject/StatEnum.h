@@ -12,6 +12,12 @@ namespace stat {
         hp,
         hitDice,
         hpRolls,
-        hpDie
+        hpDie,
+        strMod,
+        dexMod,
+        conMod,
+        intMod,
+        wisMod,
+        chaMod
     };
 }

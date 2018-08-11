@@ -84,12 +84,12 @@ void Action::applyAction(const Player &player, Player *targetCreature) const
 }
 
 // MARK: getters
-string Action::getName() const { return m_name; }
-Ushort Action::getNumRolls() const { return m_numRolls; }
-string Action::getBaseStat() const { return m_basedOnStat; }
-Ushort Action::getDie() const { return m_die; }
-short Action::getResultMod() const { return m_resultMod; }
-short Action::getSuccessMod() const { return m_successMod; }
-string Action::getTargetStat() const { return m_targetStat; }
-string Action::getStatAffected() const { return m_statAffected; }
-bool Action::isIncrease() const { return m_isIncrease; }
+string  Action::getName()           const { return m_name; }
+Ushort  Action::getNumRolls()       const { return m_numRolls; }
+string  Action::getBaseStat()       const { return m_basedOnStat; }
+Ushort  Action::getDie()            const { return m_die; }
+short   Action::getResultMod()      const { return m_resultMod; }
+short   Action::getSuccessMod()     const { return m_successMod; }
+string  Action::getTargetStat()     const { return m_targetStat; }
+string  Action::getStatAffected()   const { return m_statAffected; }
+bool    Action::isIncrease()        const { return m_isIncrease; }

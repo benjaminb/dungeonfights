@@ -25,7 +25,13 @@ map<const string, unsigned int> Player::m_statMap = {
     {"hp", 7},
     {"hitDice", 8},
     {"hpRolls", 9},
-    {"hpDie", 10}
+    {"hpDie", 10},
+    {"strMod", 11},
+    {"dexMod", 12},
+    {"conMod", 13},
+    {"intMod", 14},
+    {"wisMod", 15},
+    {"conMod", 16}
 };
 
 Player::Player() { m_name = "unnamed character"; }
@@ -47,10 +53,11 @@ Player::Player(const string &filename)
             m_stats[ m_statMap.at(key) ] = stoi(value);
     }
     
-    inFile.close();
+    inFile.close(); 
     
     for (int i = 0; i < NUM_ABILITY_MODS; ++i)
-        m_abilityMods[i] = (m_stats[i] - 10) / 2;
+        m_stats[stat::strMod + i] = (m_stats[i] - 10) / 2;
+    
     
     // Calculate hp
     m_stats[ stat::hp ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
@@ -65,12 +72,6 @@ void Player::changeStat(const string &key, const short &value)
     m_stats[ m_statMap.at(key)] += value;
 }
 
-int  Player::getStat(const string &s) const { return m_stats[ m_statMap[s] ]; }
-int  Player::getStat(const int &index) const { return m_stats[index]; };
-string Player::getName() const { return m_name; }
-int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statMap[s] ]; }
-int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
-string Player::getAction(const int index) { return m_actions[index]; }
 
 bool Player::resolveAction(const Player &targetCreature, const Action &theAction )
 {
@@ -84,7 +85,9 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     
     string playerName = getName();
     short successMod = theAction.getSuccessMod();
-    short abilityMod = getAbilityMod( theAction.getBaseStat() );
+    short abilityMod = getStat( theAction.getBaseStat() );
+
+    //    short abilityMod = getAbilityMod( theAction.getBaseStat() );
     int dieRoll = roll(1, 20);
     short rollResult = dieRoll + successMod + abilityMod;
     
@@ -104,6 +107,13 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     else
     {
         cout << playerName << " fails! \n";
-        return false;        
+        return false;
     }
 }
+
+int  Player::getStat(const string &s) const { return m_stats[ m_statMap[s] ]; }
+int  Player::getStat(const int &index) const { return m_stats[index]; };
+string Player::getName() const { return m_name; }
+int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statMap[s] ]; }
+int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
+string Player::getAction(const int index) { return m_actions[index]; }

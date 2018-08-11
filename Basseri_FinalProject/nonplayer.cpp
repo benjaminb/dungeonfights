@@ -43,7 +43,8 @@ NonPlayer::NonPlayer(const string &filename)
     inFile.close();
     
     for (int i = 0; i < NUM_ABILITY_MODS; ++i)
-        m_abilityMods[i] = (m_stats[i] - 10) / 2;
+        m_stats[stat::strMod + i] = (m_stats[i] - 10) / 2;
+
     
     // Calculate hp
     m_stats[ stat::hp ] += roll( m_stats[stat::hpDie], m_stats[stat::hpRolls]);
@@ -60,12 +61,6 @@ Decision::Decision()
 }
 
 void Decision::setTarget(Player *target) { m_target = target; }
-
-void takeAParty(vector<Player> party)
-{
-    for (Player p : party)
-        cout << p.getName() << " ";
-}
 
 Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, const PolicyMap &policyMap)
 {
@@ -108,5 +103,5 @@ Decision NonPlayer::decide(vector<NonPlayer> &allies, Party &foes, const PolicyM
 
 void Decision::setAction(const string &actionString) { m_action = actionString; }
 
-Player * Decision::getTarget() { return m_target; }
-string Decision::getAction() { return m_action; }
+Player *    Decision::getTarget() { return m_target; }
+string      Decision::getAction() { return m_action; }

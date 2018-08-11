@@ -19,7 +19,7 @@ typedef unsigned short          Ushort;
 typedef unsigned int            Uint;
 typedef vector<Player>          Party;
 const Uint NUM_ABILITY_MODS = 6;
-const Uint NUM_PLAYER_STATS = 11;
+const Uint NUM_PLAYER_STATS = 17;
 
 class Player
 {
