@@ -8,7 +8,7 @@ hpRolls 1
 hpDie 8
 ac 16
 action cureLightWounds
-action hammer
+action bearStrength
 action rayOfFrost
 action magicMissile
 name AdamWarlock
