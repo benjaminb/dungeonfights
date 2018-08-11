@@ -28,8 +28,7 @@ protected:
     static map<const string, unsigned int> m_statMap;
     
     string m_name;
-    int m_stats[NUM_PLAYER_STATS]; // make sure core 6 stats are the first 6 to align with abilityMods
-    int m_abilityMods[NUM_ABILITY_MODS];
+    int m_stats[NUM_PLAYER_STATS];
     vector<string> m_actions;
 public:
     Player();
@@ -39,7 +38,6 @@ public:
     // Getters
     int getStat(const string &stat) const;
     int getStat(const int &) const;
-    int getAbilityMod(const string& ability) const;
     string getName() const;
     int getNumActions();
     string getAction(const int index);

@@ -86,8 +86,6 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     string playerName = getName();
     short successMod = theAction.getSuccessMod();
     short abilityMod = getStat( theAction.getBaseStat() );
-
-    //    short abilityMod = getAbilityMod( theAction.getBaseStat() );
     int dieRoll = roll(1, 20);
     short rollResult = dieRoll + successMod + abilityMod;
     
@@ -111,9 +109,8 @@ bool Player::resolveAction(const Player &targetCreature, const Action &theAction
     }
 }
 
-int  Player::getStat(const string &s) const { return m_stats[ m_statMap[s] ]; }
-int  Player::getStat(const int &index) const { return m_stats[index]; };
-string Player::getName() const { return m_name; }
-int Player::getAbilityMod(const string &s) const { return m_abilityMods[ m_statMap[s] ]; }
-int Player::getNumActions() { return static_cast<int>(m_actions.size()); }
-string Player::getAction(const int index) { return m_actions[index]; }
+int     Player::getStat(const string &s) const  { return m_stats[ m_statMap[s] ]; }
+int     Player::getStat(const int &index) const { return m_stats[index]; };
+string  Player::getName() const                 { return m_name; }
+int     Player::getNumActions()                 { return static_cast<int>(m_actions.size()); }
+string  Player::getAction(const int index)      { return m_actions[index]; }
